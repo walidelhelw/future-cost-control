@@ -10,6 +10,9 @@ import {
   AlertTriangle,
   TrendingUp,
   Building2,
+  Database,
+  FolderKanban,
+  FileSpreadsheet,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -18,6 +21,21 @@ const navItems = [
     key: "dashboard",
     href: "",
     icon: LayoutDashboard,
+  },
+  {
+    key: "rates",
+    href: "/rates",
+    icon: Database,
+  },
+  {
+    key: "projects",
+    href: "/projects",
+    icon: FolderKanban,
+  },
+  {
+    key: "estimates",
+    href: "/estimates",
+    icon: FileSpreadsheet,
   },
   {
     key: "suppliers",

@@ -152,3 +152,336 @@ export function calculateFundingGap(
   const cumCashOut = calculateCumulative(cashOut);
   return cumCashIn.map((ci, i) => ci - cumCashOut[i]);
 }
+
+// ============================================
+// SMART ESTIMATE MODULE CALCULATIONS
+// ============================================
+
+// Default cost configuration
+export const DEFAULT_COST_CONFIG = {
+  indirectRate: 0.15, // 15%
+  profitMargin: 0.20, // 20%
+  contingency: 0.05, // 5%
+};
+
+// Component item for cost breakdown
+export interface ComponentItem {
+  rateCode: string;
+  qty: number;
+  description?: string;
+  rate?: number;
+  cost?: number;
+}
+
+// Full cost breakdown structure
+export interface CostBreakdown {
+  materials: {
+    items: ComponentItem[];
+    subtotal: number;
+  };
+  labor: {
+    items: ComponentItem[];
+    subtotal: number;
+  };
+  equipment: {
+    items: ComponentItem[];
+    subtotal: number;
+  };
+  directCost: number;
+  indirectCost: number;
+  profit: number;
+  contingency: number;
+  sellingPrice: number;
+}
+
+// Estimate item calculation result
+export interface EstimateItemResult {
+  materialCost: number;
+  laborCost: number;
+  equipmentCost: number;
+  directCost: number;
+  indirectCost: number;
+  profit: number;
+  sellingRate: number;
+  total: number;
+  breakdown: CostBreakdown;
+}
+
+// Rate lookup function type
+export type RateLookup = (code: string) => number | undefined;
+
+/**
+ * Calculate cost for a single component (material, labor, or equipment)
+ */
+export function calculateComponentCost(
+  item: ComponentItem,
+  rateLookup: RateLookup
+): number {
+  const rate = item.rate ?? rateLookup(item.rateCode) ?? 0;
+  return item.qty * rate;
+}
+
+/**
+ * Calculate total for a list of components
+ */
+export function calculateComponentsTotal(
+  items: ComponentItem[],
+  rateLookup: RateLookup
+): { items: ComponentItem[]; subtotal: number } {
+  const calculatedItems = items.map((item) => {
+    const rate = item.rate ?? rateLookup(item.rateCode) ?? 0;
+    const cost = item.qty * rate;
+    return { ...item, rate, cost };
+  });
+
+  const subtotal = calculatedItems.reduce((sum, item) => sum + (item.cost ?? 0), 0);
+  return { items: calculatedItems, subtotal };
+}
+
+/**
+ * Calculate full cost breakdown for an estimate item
+ */
+export function calculateEstimateItem(
+  quantity: number,
+  materials: ComponentItem[],
+  labor: ComponentItem[],
+  equipment: ComponentItem[],
+  rateLookup: RateLookup,
+  config: {
+    indirectRate: number;
+    profitMargin: number;
+    contingency: number;
+  } = DEFAULT_COST_CONFIG
+): EstimateItemResult {
+  // Calculate component costs
+  const materialsResult = calculateComponentsTotal(materials, rateLookup);
+  const laborResult = calculateComponentsTotal(labor, rateLookup);
+  const equipmentResult = calculateComponentsTotal(equipment, rateLookup);
+
+  // Calculate totals per unit
+  const materialCost = materialsResult.subtotal;
+  const laborCost = laborResult.subtotal;
+  const equipmentCost = equipmentResult.subtotal;
+  const directCost = materialCost + laborCost + equipmentCost;
+
+  // Calculate indirect, profit, contingency
+  const indirectCost = directCost * config.indirectRate;
+  const costBeforeProfit = directCost + indirectCost;
+  const profit = costBeforeProfit * config.profitMargin;
+  const costBeforeContingency = costBeforeProfit + profit;
+  const contingencyCost = costBeforeContingency * config.contingency;
+  const sellingRate = costBeforeContingency + contingencyCost;
+
+  // Calculate total with quantity
+  const total = sellingRate * quantity;
+
+  const breakdown: CostBreakdown = {
+    materials: materialsResult,
+    labor: laborResult,
+    equipment: equipmentResult,
+    directCost,
+    indirectCost,
+    profit,
+    contingency: contingencyCost,
+    sellingPrice: sellingRate,
+  };
+
+  return {
+    materialCost,
+    laborCost,
+    equipmentCost,
+    directCost,
+    indirectCost,
+    profit,
+    sellingRate,
+    total,
+    breakdown,
+  };
+}
+
+/**
+ * Calculate estimate totals from all items
+ */
+export interface EstimateTotals {
+  totalDirect: number;
+  totalIndirect: number;
+  totalProfit: number;
+  totalContingency: number;
+  totalSelling: number;
+  materialsCost: number;
+  laborCost: number;
+  equipmentCost: number;
+}
+
+export function calculateEstimateTotals(
+  items: EstimateItemResult[],
+  quantities: number[]
+): EstimateTotals {
+  const totals = items.reduce(
+    (acc, item, index) => {
+      const qty = quantities[index] ?? 1;
+      return {
+        totalDirect: acc.totalDirect + item.directCost * qty,
+        totalIndirect: acc.totalIndirect + item.indirectCost * qty,
+        totalProfit: acc.totalProfit + item.profit * qty,
+        totalContingency: acc.totalContingency + (item.breakdown.contingency ?? 0) * qty,
+        totalSelling: acc.totalSelling + item.total,
+        materialsCost: acc.materialsCost + item.materialCost * qty,
+        laborCost: acc.laborCost + item.laborCost * qty,
+        equipmentCost: acc.equipmentCost + item.equipmentCost * qty,
+      };
+    },
+    {
+      totalDirect: 0,
+      totalIndirect: 0,
+      totalProfit: 0,
+      totalContingency: 0,
+      totalSelling: 0,
+      materialsCost: 0,
+      laborCost: 0,
+      equipmentCost: 0,
+    }
+  );
+
+  return totals;
+}
+
+/**
+ * Apply waste factor to quantity
+ */
+export function applyWasteFactor(quantity: number, wasteFactor: number): number {
+  return quantity * wasteFactor;
+}
+
+/**
+ * Calculate escalation adjustment (V2 = V1 × 0.85 × 0.05 × ((New Rate / Old Rate) - 1))
+ */
+export function calculateEscalation(
+  baseValue: number,
+  oldRate: number,
+  newRate: number
+): number {
+  if (oldRate === 0) return 0;
+  const rateChange = (newRate / oldRate) - 1;
+  return baseValue * 0.85 * 0.05 * rateChange;
+}
+
+// ============================================
+// VALIDATION RULES FOR ESTIMATES
+// ============================================
+
+export interface ValidationRule {
+  id: string;
+  name: string;
+  severity: 'ERROR' | 'WARNING' | 'INFO';
+  check: (data: Record<string, unknown>) => boolean;
+  message: string;
+  suggestion?: string;
+}
+
+export const ESTIMATE_VALIDATION_RULES: ValidationRule[] = [
+  {
+    id: 'RATE_BOUNDS',
+    name: 'Rate within bounds',
+    severity: 'WARNING',
+    check: (data) => {
+      const rate = data.rate as number;
+      const minRate = data.minRate as number | undefined;
+      const maxRate = data.maxRate as number | undefined;
+      if (minRate !== undefined && rate < minRate) return false;
+      if (maxRate !== undefined && rate > maxRate) return false;
+      return true;
+    },
+    message: 'Rate is outside the acceptable range',
+    suggestion: 'Review the rate and update if necessary',
+  },
+  {
+    id: 'QUANTITY_POSITIVE',
+    name: 'Positive quantity',
+    severity: 'ERROR',
+    check: (data) => (data.quantity as number) > 0,
+    message: 'Quantity must be greater than zero',
+    suggestion: 'Enter a positive quantity value',
+  },
+  {
+    id: 'INDIRECT_MIN',
+    name: 'Minimum indirect rate',
+    severity: 'WARNING',
+    check: (data) => (data.indirectRate as number) >= 0.12,
+    message: 'Indirect rate is below the recommended minimum of 12%',
+    suggestion: 'Consider increasing indirect rate to at least 12%',
+  },
+  {
+    id: 'PROFIT_MIN',
+    name: 'Minimum profit margin',
+    severity: 'WARNING',
+    check: (data) => (data.profitMargin as number) >= 0.15,
+    message: 'Profit margin is below the recommended minimum of 15%',
+    suggestion: 'Consider increasing profit margin to at least 15%',
+  },
+  {
+    id: 'CONTINGENCY_RANGE',
+    name: 'Contingency within range',
+    severity: 'INFO',
+    check: (data) => {
+      const contingency = data.contingency as number;
+      return contingency >= 0.03 && contingency <= 0.10;
+    },
+    message: 'Contingency is outside typical range (3-10%)',
+    suggestion: 'Review project risk profile to determine appropriate contingency',
+  },
+  {
+    id: 'MISSING_DESCRIPTION',
+    name: 'Description required',
+    severity: 'WARNING',
+    check: (data) => Boolean(data.descriptionAr),
+    message: 'Arabic description is missing',
+    suggestion: 'Add Arabic description for the item',
+  },
+  {
+    id: 'BOQ_CODE_FORMAT',
+    name: 'Valid BOQ code format',
+    severity: 'ERROR',
+    check: (data) => {
+      const code = data.boqCode as string;
+      return /^[A-Z0-9]+-[A-Z0-9]+(-[A-Z0-9]+)?$/i.test(code);
+    },
+    message: 'BOQ code format is invalid',
+    suggestion: 'Use format: CATEGORY-CODE or CATEGORY-SUB-CODE',
+  },
+];
+
+/**
+ * Validate estimate data against rules
+ */
+export function validateEstimate(
+  data: Record<string, unknown>,
+  rules: ValidationRule[] = ESTIMATE_VALIDATION_RULES
+): { valid: boolean; errors: ValidationRule[]; warnings: ValidationRule[]; infos: ValidationRule[] } {
+  const errors: ValidationRule[] = [];
+  const warnings: ValidationRule[] = [];
+  const infos: ValidationRule[] = [];
+
+  for (const rule of rules) {
+    if (!rule.check(data)) {
+      switch (rule.severity) {
+        case 'ERROR':
+          errors.push(rule);
+          break;
+        case 'WARNING':
+          warnings.push(rule);
+          break;
+        case 'INFO':
+          infos.push(rule);
+          break;
+      }
+    }
+  }
+
+  return {
+    valid: errors.length === 0,
+    errors,
+    warnings,
+    infos,
+  };
+}

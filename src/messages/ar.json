@@ -3,6 +3,9 @@
     "appName": "نظام التكاليف المصغر",
     "appDescription": "شركة المستقبل للمقاولات",
     "dashboard": "لوحة التحكم",
+    "rates": "قاعدة الأسعار",
+    "projects": "المشاريع",
+    "estimates": "التقديرات",
     "suppliers": "تقييم الموردين",
     "boq": "حاسبة البنود",
     "risks": "تقييم المخاطر",
@@ -179,5 +182,117 @@
     "comparison": "المقارنة",
     "chart": "الرسم البياني",
     "table": "الجدول"
+  },
+  "rates": {
+    "title": "قاعدة بيانات الأسعار",
+    "addRate": "إضافة سعر",
+    "editRate": "تعديل سعر",
+    "rateCode": "كود السعر",
+    "rateName": "اسم السعر",
+    "rateNameEn": "الاسم بالإنجليزية",
+    "currentRate": "السعر الحالي",
+    "minRate": "الحد الأدنى",
+    "maxRate": "الحد الأقصى",
+    "wasteFactor": "معامل الهالك",
+    "effectiveFrom": "ساري من",
+    "source": "المصدر",
+    "notes": "ملاحظات",
+    "category": "الفئة",
+    "history": "سجل التغييرات",
+    "rateTypes": {
+      "material": "مواد",
+      "labor": "عمالة",
+      "equipment": "معدات",
+      "subcontractor": "مقاول من الباطن"
+    },
+    "categories": {
+      "concrete": "خرسانة",
+      "steel": "حديد",
+      "blocks": "طوب وبلوك",
+      "labor": "عمالة",
+      "equipment": "معدات"
+    },
+    "filters": {
+      "allTypes": "جميع الأنواع",
+      "allCategories": "جميع الفئات",
+      "activeOnly": "النشطة فقط"
+    }
+  },
+  "projects": {
+    "title": "إدارة المشاريع",
+    "addProject": "إضافة مشروع",
+    "editProject": "تعديل مشروع",
+    "projectCode": "كود المشروع",
+    "projectName": "اسم المشروع",
+    "client": "العميل",
+    "projectType": "نوع المشروع",
+    "location": "الموقع",
+    "area": "المساحة (م²)",
+    "floors": "عدد الأدوار",
+    "units": "عدد الوحدات",
+    "duration": "المدة (شهور)",
+    "projectStatus": "حالة المشروع",
+    "estimatesCount": "عدد التقديرات",
+    "createEstimate": "إنشاء تقدير جديد",
+    "viewEstimates": "عرض التقديرات",
+    "types": {
+      "residential": "سكني",
+      "commercial": "تجاري",
+      "industrial": "صناعي",
+      "infrastructure": "بنية تحتية"
+    },
+    "statuses": {
+      "draft": "مسودة",
+      "active": "نشط",
+      "onHold": "متوقف",
+      "completed": "مكتمل",
+      "cancelled": "ملغي"
+    }
+  },
+  "estimates": {
+    "title": "تقديرات التكاليف",
+    "addEstimate": "تقدير جديد",
+    "editEstimate": "تعديل التقدير",
+    "version": "الإصدار",
+    "estimateName": "اسم التقدير",
+    "indirectRate": "نسبة غير المباشرة",
+    "profitMargin": "هامش الربح",
+    "contingency": "الاحتياطي",
+    "totalDirect": "إجمالي المباشرة",
+    "totalIndirect": "إجمالي غير المباشرة",
+    "totalProfit": "إجمالي الربح",
+    "totalContingency": "إجمالي الاحتياطي",
+    "totalSelling": "سعر البيع الإجمالي",
+    "materialsCost": "تكلفة المواد",
+    "laborCost": "تكلفة العمالة",
+    "equipmentCost": "تكلفة المعدات",
+    "addItem": "إضافة بند",
+    "editItem": "تعديل بند",
+    "boqCode": "كود البند",
+    "descriptionAr": "الوصف بالعربية",
+    "descriptionEn": "الوصف بالإنجليزية",
+    "quantity": "الكمية",
+    "directCost": "التكلفة المباشرة",
+    "sellingRate": "سعر البيع",
+    "itemTotal": "إجمالي البند",
+    "breakdown": "تفاصيل التكلفة",
+    "validation": "التحقق",
+    "approve": "اعتماد",
+    "reject": "رفض",
+    "clone": "نسخ",
+    "compareVersions": "مقارنة الإصدارات",
+    "statuses": {
+      "draft": "مسودة",
+      "pendingReview": "قيد المراجعة",
+      "approved": "معتمد",
+      "rejected": "مرفوض",
+      "superseded": "محل إصدار أحدث"
+    },
+    "validationMessages": {
+      "rateOutOfBounds": "السعر خارج النطاق المسموح",
+      "quantityRequired": "الكمية مطلوبة",
+      "indirectTooLow": "نسبة غير المباشرة منخفضة جداً",
+      "profitTooLow": "هامش الربح منخفض جداً"
+    }
   }
 }

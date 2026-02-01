@@ -3,6 +3,9 @@
     "appName": "Cost Control Mini-Suite",
     "appDescription": "The Future Construction Company",
     "dashboard": "Dashboard",
+    "rates": "Rate Database",
+    "projects": "Projects",
+    "estimates": "Estimates",
     "suppliers": "Supplier Evaluation",
     "boq": "BOQ Calculator",
     "risks": "Risk Assessment",
@@ -179,5 +182,117 @@
     "comparison": "Comparison",
     "chart": "Chart",
     "table": "Table"
+  },
+  "rates": {
+    "title": "Rate Database",
+    "addRate": "Add Rate",
+    "editRate": "Edit Rate",
+    "rateCode": "Rate Code",
+    "rateName": "Rate Name",
+    "rateNameEn": "English Name",
+    "currentRate": "Current Rate",
+    "minRate": "Minimum Rate",
+    "maxRate": "Maximum Rate",
+    "wasteFactor": "Waste Factor",
+    "effectiveFrom": "Effective From",
+    "source": "Source",
+    "notes": "Notes",
+    "category": "Category",
+    "history": "History",
+    "rateTypes": {
+      "material": "Material",
+      "labor": "Labor",
+      "equipment": "Equipment",
+      "subcontractor": "Subcontractor"
+    },
+    "categories": {
+      "concrete": "Concrete",
+      "steel": "Steel",
+      "blocks": "Blocks & Bricks",
+      "labor": "Labor",
+      "equipment": "Equipment"
+    },
+    "filters": {
+      "allTypes": "All Types",
+      "allCategories": "All Categories",
+      "activeOnly": "Active Only"
+    }
+  },
+  "projects": {
+    "title": "Project Management",
+    "addProject": "Add Project",
+    "editProject": "Edit Project",
+    "projectCode": "Project Code",
+    "projectName": "Project Name",
+    "client": "Client",
+    "projectType": "Project Type",
+    "location": "Location",
+    "area": "Area (m²)",
+    "floors": "Floors",
+    "units": "Units",
+    "duration": "Duration (months)",
+    "projectStatus": "Project Status",
+    "estimatesCount": "Estimates Count",
+    "createEstimate": "Create New Estimate",
+    "viewEstimates": "View Estimates",
+    "types": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "industrial": "Industrial",
+      "infrastructure": "Infrastructure"
+    },
+    "statuses": {
+      "draft": "Draft",
+      "active": "Active",
+      "onHold": "On Hold",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    }
+  },
+  "estimates": {
+    "title": "Cost Estimates",
+    "addEstimate": "New Estimate",
+    "editEstimate": "Edit Estimate",
+    "version": "Version",
+    "estimateName": "Estimate Name",
+    "indirectRate": "Indirect Rate",
+    "profitMargin": "Profit Margin",
+    "contingency": "Contingency",
+    "totalDirect": "Total Direct",
+    "totalIndirect": "Total Indirect",
+    "totalProfit": "Total Profit",
+    "totalContingency": "Total Contingency",
+    "totalSelling": "Total Selling Price",
+    "materialsCost": "Materials Cost",
+    "laborCost": "Labor Cost",
+    "equipmentCost": "Equipment Cost",
+    "addItem": "Add Item",
+    "editItem": "Edit Item",
+    "boqCode": "BOQ Code",
+    "descriptionAr": "Arabic Description",
+    "descriptionEn": "English Description",
+    "quantity": "Quantity",
+    "directCost": "Direct Cost",
+    "sellingRate": "Selling Rate",
+    "itemTotal": "Item Total",
+    "breakdown": "Cost Breakdown",
+    "validation": "Validation",
+    "approve": "Approve",
+    "reject": "Reject",
+    "clone": "Clone",
+    "compareVersions": "Compare Versions",
+    "statuses": {
+      "draft": "Draft",
+      "pendingReview": "Pending Review",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "superseded": "Superseded"
+    },
+    "validationMessages": {
+      "rateOutOfBounds": "Rate is outside acceptable range",
+      "quantityRequired": "Quantity is required",
+      "indirectTooLow": "Indirect rate is too low",
+      "profitTooLow": "Profit margin is too low"
+    }
   }
 }
