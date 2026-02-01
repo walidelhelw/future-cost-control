@@ -143,27 +143,31 @@ export function ProductivityTable({
   };
 
   return (
-    <div className={cn("space-y-4", className)}>
+    <div className={cn("space-y-4", className)} dir={isArabic ? "rtl" : "ltr"}>
       {/* Filters Row */}
-      <div className="flex flex-wrap gap-4">
-        {/* Search */}
-        <div className="flex-1 min-w-[200px]">
-          <div className="relative">
-            <Search className="absolute start-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder={isArabic ? "بحث..." : "Search..."}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="ps-9"
-            />
-          </div>
-        </div>
+      <div className={cn("flex flex-wrap gap-4", isArabic && "flex-row-reverse")}>
+        {/* Source Filter */}
+        <Select value={sourceFilter} onValueChange={setSourceFilter}>
+          <SelectTrigger className="w-[150px]">
+            <SelectValue placeholder={isArabic ? "جميع المصادر" : "All Sources"} />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">
+              {isArabic ? "جميع المصادر" : "All Sources"}
+            </SelectItem>
+            {sources.map(source => (
+              <SelectItem key={source} value={source}>
+                {source}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
 
         {/* Category Filter */}
         <Select value={categoryFilter} onValueChange={setCategoryFilter}>
           <SelectTrigger className="w-[180px]">
             <Filter className="h-4 w-4 me-2 text-muted-foreground" />
-            <SelectValue placeholder={isArabic ? "الفئة" : "Category"} />
+            <SelectValue placeholder={isArabic ? "جميع الفئات" : "All Categories"} />
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">
@@ -177,26 +181,22 @@ export function ProductivityTable({
           </SelectContent>
         </Select>
 
-        {/* Source Filter */}
-        <Select value={sourceFilter} onValueChange={setSourceFilter}>
-          <SelectTrigger className="w-[150px]">
-            <SelectValue placeholder={isArabic ? "المصدر" : "Source"} />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="all">
-              {isArabic ? "جميع المصادر" : "All Sources"}
-            </SelectItem>
-            {sources.map(source => (
-              <SelectItem key={source} value={source}>
-                {source}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        {/* Search */}
+        <div className="flex-1 min-w-[200px]">
+          <div className="relative">
+            <Search className={cn("absolute top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground", isArabic ? "right-3" : "left-3")} />
+            <Input
+              placeholder={isArabic ? "بحث..." : "Search..."}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={isArabic ? "pr-9" : "pl-9"}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Results Count */}
-      <div className="text-sm text-muted-foreground">
+      <div className={cn("text-sm text-muted-foreground", isArabic && "text-right")}>
         {isArabic
           ? `${filteredTemplates.length} نتيجة`
           : `${filteredTemplates.length} results`}

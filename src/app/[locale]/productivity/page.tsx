@@ -102,8 +102,8 @@ export default function ProductivityPage() {
       </div>
 
       {/* Main Content Tabs */}
-      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4">
-        <TabsList>
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-4" dir={isArabic ? "rtl" : "ltr"}>
+        <TabsList className={isArabic ? "flex-row-reverse" : ""}>
           <TabsTrigger value="browse" className="gap-2">
             <Database className="h-4 w-4" />
             {isArabic ? "استعراض البيانات" : "Browse Data"}
