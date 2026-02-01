@@ -485,3 +485,275 @@ export function validateEstimate(
     infos,
   };
 }
+
+// ============================================
+// PRODUCTIVITY MODULE CALCULATIONS
+// ============================================
+
+import type { ConditionFactor } from '@/data/condition-factors';
+import type { CrewRole } from '@/data/crew-roles';
+import type { ProductivityTemplate, CrewMember } from '@/data/productivity-templates';
+
+/**
+ * Result of a productivity-based labor cost calculation
+ */
+export interface ProductivityCalculation {
+  /** Input quantity of work */
+  quantity: number;
+  /** Base productivity rate (units per day per crew) */
+  baseProductivityRate: number;
+  /** Adjusted productivity after applying condition factors */
+  adjustedProductivityRate: number;
+  /** Days required to complete the work */
+  daysRequired: number;
+  /** Breakdown of crew cost per role */
+  crewCostBreakdown: CrewCostItem[];
+  /** Total daily crew cost */
+  dailyCrewCost: number;
+  /** Total labor cost for the work */
+  totalLaborCost: number;
+  /** Condition factors that were applied */
+  appliedFactors: ConditionFactor[];
+  /** Combined factor from all conditions (1.0 = no adjustment) */
+  combinedFactor: number;
+}
+
+/**
+ * Individual crew member cost breakdown
+ */
+export interface CrewCostItem {
+  roleCode: string;
+  roleName: string;
+  roleNameEn?: string;
+  quantity: number;
+  dailyRate: number;
+  totalDays: number;
+  totalCost: number;
+}
+
+/**
+ * Rate lookup function for crew roles
+ */
+export type CrewRateLookup = (roleCode: string) => CrewRole | undefined;
+
+/**
+ * Calculate labor cost based on productivity rate
+ *
+ * @param template - The productivity template with crew composition
+ * @param quantity - Quantity of work to be done
+ * @param roleLookup - Function to look up crew role details
+ * @param conditionFactors - Optional array of condition factors to apply
+ * @returns Full productivity calculation result
+ *
+ * @example
+ * ```ts
+ * const result = calculateProductivityCost(
+ *   masonryTemplate,
+ *   100, // 100 m² of brick wall
+ *   getCrewRoleByCode,
+ *   [getFactorById('weather-heat')]
+ * );
+ * // Result: ~4.3 days needed, crew cost breakdown, total labor cost
+ * ```
+ */
+export function calculateProductivityCost(
+  template: ProductivityTemplate,
+  quantity: number,
+  roleLookup: CrewRateLookup,
+  conditionFactors: ConditionFactor[] = []
+): ProductivityCalculation {
+  // Calculate combined condition factor
+  const combinedFactor = conditionFactors.reduce(
+    (combined, factor) => combined * factor.factor,
+    1.0
+  );
+
+  // Apply condition factors to productivity rate
+  const adjustedProductivityRate = template.productivityRate * combinedFactor;
+
+  // Calculate days required (quantity / adjusted productivity)
+  const daysRequired = adjustedProductivityRate > 0
+    ? quantity / adjustedProductivityRate
+    : 0;
+
+  // Calculate crew cost breakdown
+  const crewCostBreakdown: CrewCostItem[] = template.crew.map(member => {
+    const role = roleLookup(member.roleCode);
+    const dailyRate = role?.dailyRate ?? 0;
+    const totalCost = dailyRate * member.qty * daysRequired;
+
+    return {
+      roleCode: member.roleCode,
+      roleName: role?.nameAr ?? member.description ?? member.roleCode,
+      roleNameEn: role?.nameEn,
+      quantity: member.qty,
+      dailyRate,
+      totalDays: daysRequired,
+      totalCost
+    };
+  });
+
+  // Calculate daily crew cost
+  const dailyCrewCost = crewCostBreakdown.reduce(
+    (sum, item) => sum + (item.dailyRate * item.quantity),
+    0
+  );
+
+  // Calculate total labor cost
+  const totalLaborCost = crewCostBreakdown.reduce(
+    (sum, item) => sum + item.totalCost,
+    0
+  );
+
+  return {
+    quantity,
+    baseProductivityRate: template.productivityRate,
+    adjustedProductivityRate,
+    daysRequired,
+    crewCostBreakdown,
+    dailyCrewCost,
+    totalLaborCost,
+    appliedFactors: conditionFactors,
+    combinedFactor
+  };
+}
+
+/**
+ * Calculate labor cost for a simple crew composition (without template)
+ *
+ * @param crew - Array of crew members with role codes and quantities
+ * @param productivityRate - Units produced per day
+ * @param quantity - Total quantity of work
+ * @param roleLookup - Function to look up crew role details
+ * @returns Simplified productivity calculation
+ */
+export function calculateCrewLaborCost(
+  crew: CrewMember[],
+  productivityRate: number,
+  quantity: number,
+  roleLookup: CrewRateLookup
+): {
+  daysRequired: number;
+  dailyCrewCost: number;
+  totalLaborCost: number;
+  crewSize: number;
+} {
+  const daysRequired = productivityRate > 0 ? quantity / productivityRate : 0;
+
+  const dailyCrewCost = crew.reduce((sum, member) => {
+    const role = roleLookup(member.roleCode);
+    return sum + (role?.dailyRate ?? 0) * member.qty;
+  }, 0);
+
+  const crewSize = crew.reduce((sum, member) => sum + member.qty, 0);
+  const totalLaborCost = dailyCrewCost * daysRequired;
+
+  return {
+    daysRequired,
+    dailyCrewCost,
+    totalLaborCost,
+    crewSize
+  };
+}
+
+/**
+ * Calculate productivity impact from condition factors
+ *
+ * @param factors - Array of condition factors
+ * @returns Impact analysis
+ */
+export function analyzeConditionImpact(
+  factors: ConditionFactor[]
+): {
+  combinedFactor: number;
+  impactPercentage: number;
+  impactLevel: 'none' | 'low' | 'medium' | 'high' | 'severe';
+  factorsSummary: string;
+} {
+  const combinedFactor = factors.reduce(
+    (combined, factor) => combined * factor.factor,
+    1.0
+  );
+
+  const impactPercentage = (1 - combinedFactor) * 100;
+
+  let impactLevel: 'none' | 'low' | 'medium' | 'high' | 'severe';
+  if (impactPercentage <= 0) {
+    impactLevel = 'none';
+  } else if (impactPercentage <= 10) {
+    impactLevel = 'low';
+  } else if (impactPercentage <= 25) {
+    impactLevel = 'medium';
+  } else if (impactPercentage <= 40) {
+    impactLevel = 'high';
+  } else {
+    impactLevel = 'severe';
+  }
+
+  const factorsSummary = factors.map(f => f.nameAr).join('، ');
+
+  return {
+    combinedFactor,
+    impactPercentage,
+    impactLevel,
+    factorsSummary
+  };
+}
+
+/**
+ * Estimate completion date based on productivity
+ *
+ * @param daysRequired - Number of work days needed
+ * @param startDate - Start date
+ * @param workDaysPerWeek - Working days per week (default: 6)
+ * @returns Estimated completion date
+ */
+export function estimateCompletionDate(
+  daysRequired: number,
+  startDate: Date = new Date(),
+  workDaysPerWeek: number = 6
+): Date {
+  const totalCalendarDays = Math.ceil(daysRequired * (7 / workDaysPerWeek));
+  const completionDate = new Date(startDate);
+  completionDate.setDate(completionDate.getDate() + totalCalendarDays);
+  return completionDate;
+}
+
+/**
+ * Compare productivity from multiple sources
+ */
+export interface ProductivityComparison {
+  source: string;
+  productivityRate: number;
+  crewSize: number;
+  daysRequired: number;
+  estimatedCost: number;
+  variance: number; // percentage from average
+}
+
+export function compareProductivitySources(
+  sources: Array<{
+    source: string;
+    productivityRate: number;
+    crewSize: number;
+    dailyCrewCost: number;
+  }>,
+  quantity: number
+): ProductivityComparison[] {
+  const averageRate = sources.reduce((sum, s) => sum + s.productivityRate, 0) / sources.length;
+
+  return sources.map(s => {
+    const daysRequired = s.productivityRate > 0 ? quantity / s.productivityRate : 0;
+    const estimatedCost = daysRequired * s.dailyCrewCost;
+    const variance = averageRate > 0 ? ((s.productivityRate - averageRate) / averageRate) * 100 : 0;
+
+    return {
+      source: s.source,
+      productivityRate: s.productivityRate,
+      crewSize: s.crewSize,
+      daysRequired,
+      estimatedCost,
+      variance
+    };
+  });
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import {
@@ -9,10 +10,10 @@ import {
   Calculator,
   AlertTriangle,
   TrendingUp,
-  Building2,
   Database,
   FolderKanban,
   FileSpreadsheet,
+  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -26,6 +27,11 @@ const navItems = [
     key: "rates",
     href: "/rates",
     icon: Database,
+  },
+  {
+    key: "productivity",
+    href: "/productivity",
+    icon: Zap,
   },
   {
     key: "projects",
@@ -69,9 +75,13 @@ export function Sidebar() {
       <div className="flex h-full flex-col">
         {/* Logo */}
         <div className="flex h-16 items-center gap-3 border-b px-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <Building2 className="h-6 w-6" />
-          </div>
+          <Image
+            src="/logo.svg"
+            alt="Future Logo"
+            width={44}
+            height={44}
+            className="flex-shrink-0"
+          />
           <div className="flex flex-col">
             <span className="text-sm font-bold">{t("appName")}</span>
             <span className="text-xs text-muted-foreground">

@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Outer circle ring -->
+  <circle cx="100" cy="100" r="95" fill="none" stroke="#8B7CB3" stroke-width="6"/>
+  <circle cx="100" cy="100" r="88" fill="white"/>
+
+  <!-- Left building (light blue outline) -->
+  <g transform="translate(45, 45)">
+    <!-- Building frame -->
+    <rect x="10" y="50" width="25" height="70" fill="none" stroke="#5BA4D4" stroke-width="2"/>
+    <!-- Horizontal lines -->
+    <line x1="10" y1="60" x2="35" y2="60" stroke="#5BA4D4" stroke-width="1.5"/>
+    <line x1="10" y1="70" x2="35" y2="70" stroke="#5BA4D4" stroke-width="1.5"/>
+    <line x1="10" y1="80" x2="35" y2="80" stroke="#5BA4D4" stroke-width="1.5"/>
+    <line x1="10" y1="90" x2="35" y2="90" stroke="#5BA4D4" stroke-width="1.5"/>
+    <line x1="10" y1="100" x2="35" y2="100" stroke="#5BA4D4" stroke-width="1.5"/>
+    <line x1="10" y1="110" x2="35" y2="110" stroke="#5BA4D4" stroke-width="1.5"/>
+    <!-- Vertical lines -->
+    <line x1="18" y1="50" x2="18" y2="120" stroke="#5BA4D4" stroke-width="1.5"/>
+    <line x1="27" y1="50" x2="27" y2="120" stroke="#5BA4D4" stroke-width="1.5"/>
+  </g>
+
+  <!-- Middle building (dark blue with windows) -->
+  <g transform="translate(70, 30)">
+    <rect x="10" y="25" width="30" height="105" fill="#1B3A5F"/>
+    <!-- Windows grid -->
+    <rect x="14" y="30" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="24" y="30" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="14" y="42" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="24" y="42" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="14" y="54" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="24" y="54" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="14" y="66" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="24" y="66" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="14" y="78" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="24" y="78" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="14" y="90" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="24" y="90" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="14" y="102" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="24" y="102" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="14" y="114" width="6" height="8" fill="#5BA4D4"/>
+    <rect x="24" y="114" width="6" height="8" fill="#5BA4D4"/>
+  </g>
+
+  <!-- Right building (blue solid) -->
+  <g transform="translate(95, 40)">
+    <!-- Main building -->
+    <polygon points="25,15 45,25 45,95 25,95 25,15" fill="#2E75B6"/>
+    <!-- Top triangle -->
+    <polygon points="25,15 35,5 45,25 25,15" fill="#2E75B6"/>
+    <!-- Vertical stripe -->
+    <rect x="32" y="25" width="4" height="70" fill="#1B5A8F"/>
+  </g>
+
+  <!-- Wave design -->
+  <path d="M30,140 Q50,130 70,138 Q90,146 110,138 Q130,130 150,138 Q160,142 170,140"
+        fill="none" stroke="#5BA4D4" stroke-width="8" stroke-linecap="round"/>
+  <path d="M35,148 Q55,140 75,148 Q95,156 115,148 Q135,140 155,148 Q165,152 170,150"
+        fill="none" stroke="#2E75B6" stroke-width="4" stroke-linecap="round"/>
+
+  <!-- Arabic text "فيوتشر" -->
+  <text x="100" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1B3A5F">فيوتشر</text>
+</svg>
