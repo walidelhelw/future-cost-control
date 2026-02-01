@@ -1,62 +1,62 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
-  <!-- Outer circle ring -->
-  <circle cx="100" cy="100" r="95" fill="none" stroke="#8B7CB3" stroke-width="6"/>
-  <circle cx="100" cy="100" r="88" fill="white"/>
+  <!-- Outer purple circle ring -->
+  <circle cx="100" cy="100" r="96" fill="none" stroke="#9186B5" stroke-width="8"/>
+  <circle cx="100" cy="100" r="88" fill="#ffffff"/>
 
-  <!-- Left building (light blue outline) -->
-  <g transform="translate(45, 45)">
-    <!-- Building frame -->
-    <rect x="10" y="50" width="25" height="70" fill="none" stroke="#5BA4D4" stroke-width="2"/>
-    <!-- Horizontal lines -->
-    <line x1="10" y1="60" x2="35" y2="60" stroke="#5BA4D4" stroke-width="1.5"/>
-    <line x1="10" y1="70" x2="35" y2="70" stroke="#5BA4D4" stroke-width="1.5"/>
-    <line x1="10" y1="80" x2="35" y2="80" stroke="#5BA4D4" stroke-width="1.5"/>
-    <line x1="10" y1="90" x2="35" y2="90" stroke="#5BA4D4" stroke-width="1.5"/>
-    <line x1="10" y1="100" x2="35" y2="100" stroke="#5BA4D4" stroke-width="1.5"/>
-    <line x1="10" y1="110" x2="35" y2="110" stroke="#5BA4D4" stroke-width="1.5"/>
+  <!-- Left building - wireframe style (light blue) -->
+  <g>
     <!-- Vertical lines -->
-    <line x1="18" y1="50" x2="18" y2="120" stroke="#5BA4D4" stroke-width="1.5"/>
-    <line x1="27" y1="50" x2="27" y2="120" stroke="#5BA4D4" stroke-width="1.5"/>
+    <line x1="50" y1="60" x2="50" y2="130" stroke="#5BA4D4" stroke-width="2"/>
+    <line x1="60" y1="60" x2="60" y2="130" stroke="#5BA4D4" stroke-width="2"/>
+    <line x1="70" y1="60" x2="70" y2="130" stroke="#5BA4D4" stroke-width="2"/>
+    <!-- Horizontal lines -->
+    <line x1="48" y1="65" x2="72" y2="65" stroke="#5BA4D4" stroke-width="2"/>
+    <line x1="48" y1="80" x2="72" y2="80" stroke="#5BA4D4" stroke-width="2"/>
+    <line x1="48" y1="95" x2="72" y2="95" stroke="#5BA4D4" stroke-width="2"/>
+    <line x1="48" y1="110" x2="72" y2="110" stroke="#5BA4D4" stroke-width="2"/>
+    <line x1="48" y1="125" x2="72" y2="125" stroke="#5BA4D4" stroke-width="2"/>
+    <!-- Top outline -->
+    <line x1="48" y1="60" x2="72" y2="60" stroke="#5BA4D4" stroke-width="2"/>
+    <!-- Bottom -->
+    <line x1="48" y1="130" x2="72" y2="130" stroke="#5BA4D4" stroke-width="2"/>
   </g>
 
-  <!-- Middle building (dark blue with windows) -->
-  <g transform="translate(70, 30)">
-    <rect x="10" y="25" width="30" height="105" fill="#1B3A5F"/>
-    <!-- Windows grid -->
-    <rect x="14" y="30" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="24" y="30" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="14" y="42" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="24" y="42" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="14" y="54" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="24" y="54" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="14" y="66" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="24" y="66" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="14" y="78" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="24" y="78" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="14" y="90" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="24" y="90" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="14" y="102" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="24" y="102" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="14" y="114" width="6" height="8" fill="#5BA4D4"/>
-    <rect x="24" y="114" width="6" height="8" fill="#5BA4D4"/>
+  <!-- Middle building - dark blue with windows -->
+  <g>
+    <rect x="75" y="45" width="30" height="85" fill="#1B3A5F"/>
+    <!-- Windows - 3 columns x 7 rows -->
+    <rect x="79" y="50" width="6" height="6" fill="#87CEEB"/>
+    <rect x="89" y="50" width="6" height="6" fill="#87CEEB"/>
+    <rect x="79" y="60" width="6" height="6" fill="#87CEEB"/>
+    <rect x="89" y="60" width="6" height="6" fill="#87CEEB"/>
+    <rect x="79" y="70" width="6" height="6" fill="#87CEEB"/>
+    <rect x="89" y="70" width="6" height="6" fill="#87CEEB"/>
+    <rect x="79" y="80" width="6" height="6" fill="#87CEEB"/>
+    <rect x="89" y="80" width="6" height="6" fill="#87CEEB"/>
+    <rect x="79" y="90" width="6" height="6" fill="#87CEEB"/>
+    <rect x="89" y="90" width="6" height="6" fill="#87CEEB"/>
+    <rect x="79" y="100" width="6" height="6" fill="#87CEEB"/>
+    <rect x="89" y="100" width="6" height="6" fill="#87CEEB"/>
+    <rect x="79" y="110" width="6" height="6" fill="#87CEEB"/>
+    <rect x="89" y="110" width="6" height="6" fill="#87CEEB"/>
+    <rect x="79" y="120" width="6" height="6" fill="#87CEEB"/>
+    <rect x="89" y="120" width="6" height="6" fill="#87CEEB"/>
   </g>
 
-  <!-- Right building (blue solid) -->
-  <g transform="translate(95, 40)">
-    <!-- Main building -->
-    <polygon points="25,15 45,25 45,95 25,95 25,15" fill="#2E75B6"/>
-    <!-- Top triangle -->
-    <polygon points="25,15 35,5 45,25 25,15" fill="#2E75B6"/>
+  <!-- Right building - blue with pointed top -->
+  <g>
+    <polygon points="115,35 145,55 145,130 115,130" fill="#2E75B6"/>
     <!-- Vertical stripe -->
-    <rect x="32" y="25" width="4" height="70" fill="#1B5A8F"/>
+    <rect x="125" y="55" width="5" height="75" fill="#1B5A8F"/>
   </g>
 
-  <!-- Wave design -->
-  <path d="M30,140 Q50,130 70,138 Q90,146 110,138 Q130,130 150,138 Q160,142 170,140"
-        fill="none" stroke="#5BA4D4" stroke-width="8" stroke-linecap="round"/>
-  <path d="M35,148 Q55,140 75,148 Q95,156 115,148 Q135,140 155,148 Q165,152 170,150"
-        fill="none" stroke="#2E75B6" stroke-width="4" stroke-linecap="round"/>
+  <!-- Wave decoration -->
+  <path d="M35,138 Q55,128 80,138 Q105,148 130,138 Q150,130 165,138"
+        fill="none" stroke="#5BA4D4" stroke-width="10" stroke-linecap="round"/>
+  <path d="M40,150 Q60,142 85,150 Q110,158 135,150 Q155,144 165,148"
+        fill="none" stroke="#2E75B6" stroke-width="5" stroke-linecap="round"/>
 
   <!-- Arabic text "فيوتشر" -->
-  <text x="100" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1B3A5F">فيوتشر</text>
+  <text x="100" y="168" text-anchor="middle"
+        font-family="Arial, Tahoma, sans-serif" font-size="16" font-weight="bold" fill="#1B3A5F">فيوتشر</text>
 </svg>
