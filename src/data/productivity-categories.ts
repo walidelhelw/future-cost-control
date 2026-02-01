@@ -267,6 +267,66 @@ export const productivityCategories: ProductivityCategory[] = [
   },
 
   // ========================================
+  // أعمال تخديمية - Site Services
+  // ========================================
+  {
+    id: 'site-services',
+    code: 'SVC',
+    nameAr: 'أعمال تخديمية',
+    nameEn: 'Site Services',
+    description: 'Material handling, scaffolding, demolition',
+    sortOrder: 4
+  },
+
+  // ========================================
+  // أعمال الحديد الإنشائي - Structural Steel
+  // ========================================
+  {
+    id: 'steel-works',
+    code: 'STEEL',
+    nameAr: 'أعمال الحديد الإنشائي',
+    nameEn: 'Structural Steel Works',
+    description: 'Steel frames, trusses, metal decking',
+    sortOrder: 14
+  },
+
+  // ========================================
+  // الأعمال المعدنية - Metal Works
+  // ========================================
+  {
+    id: 'metal-works',
+    code: 'MTL',
+    nameAr: 'الأعمال المعدنية',
+    nameEn: 'Metal Works',
+    description: 'Steel doors, windows, railings, tanks',
+    sortOrder: 72
+  },
+
+  // ========================================
+  // أعمال اللاند سكيب - Landscape Works
+  // ========================================
+  {
+    id: 'landscape',
+    code: 'LAND',
+    nameAr: 'أعمال الاند اسكيب',
+    nameEn: 'Landscape Works',
+    description: 'Paving, planting, outdoor works',
+    sortOrder: 110
+  },
+
+  // ========================================
+  // أعمال الأسانسير - Elevator Works
+  // ========================================
+  {
+    id: 'elevator',
+    code: 'ELEV',
+    nameAr: 'أعمال الأسانسير',
+    nameEn: 'Elevator Works',
+    description: 'Elevator installation and testing',
+    sortOrder: 120
+  },
+
+  // ========================================
   // أعمال متنوعة - Miscellaneous
   // ========================================
   {
@@ -315,13 +375,13 @@ export const categoryGroups: CategoryGroup[] = [
     id: 'site',
     nameAr: 'أعمال الموقع',
     nameEn: 'Site Works',
-    categories: ['site-clearing', 'excavation', 'backfill']
+    categories: ['site-clearing', 'excavation', 'backfill', 'site-services']
   },
   {
     id: 'structure',
     nameAr: 'أعمال الهيكل',
     nameEn: 'Structural Works',
-    categories: ['plain-concrete', 'reinforced-concrete', 'formwork', 'steel-fixing']
+    categories: ['plain-concrete', 'reinforced-concrete', 'formwork', 'steel-fixing', 'steel-works']
   },
   {
     id: 'masonry',
@@ -339,13 +399,19 @@ export const categoryGroups: CategoryGroup[] = [
     id: 'finishing',
     nameAr: 'أعمال التشطيبات',
     nameEn: 'Finishing Works',
-    categories: ['internal-plaster', 'external-plaster', 'gypsum-works', 'ceramic-tiles', 'marble-granite', 'painting', 'aluminum', 'carpentry']
+    categories: ['internal-plaster', 'external-plaster', 'gypsum-works', 'ceramic-tiles', 'marble-granite', 'painting', 'aluminum', 'carpentry', 'metal-works']
   },
   {
     id: 'mep',
     nameAr: 'الأعمال الكهروميكانيكية',
     nameEn: 'MEP Works',
-    categories: ['electrical', 'plumbing-supply', 'plumbing-drainage', 'pipe-installation', 'hvac']
+    categories: ['electrical', 'plumbing-supply', 'plumbing-drainage', 'pipe-installation', 'hvac', 'elevator']
+  },
+  {
+    id: 'external',
+    nameAr: 'أعمال خارجية',
+    nameEn: 'External Works',
+    categories: ['landscape']
   }
 ];
 

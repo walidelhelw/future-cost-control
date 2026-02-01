@@ -30,6 +30,7 @@ import {
 import { Label } from "@/components/ui/label";
 import { Badge } from "@/components/ui/badge";
 import type { RateType } from "@/lib/supabase";
+import { crewRoles } from "@/data/crew-roles";
 
 interface RateCategoryLocal {
   id: string;
@@ -125,6 +126,23 @@ const sampleRates: RateLocal[] = [
   { id: "49", category_id: "3", code: "EQP-LOADER", name_ar: "لودر", name_en: "Loader", unit: "يوم", current_rate: 3000, waste_factor: 1, effective_from: "2024-01-01", source: "excel", is_active: true, category: { id: "3", code: "EQP", name_ar: "المعدات", name_en: "Equipment", type: "EQUIPMENT", sort_order: 3, is_active: true } },
   { id: "50", category_id: "3", code: "EQP-TRUCK", name_ar: "سيارة نقل", name_en: "Truck", unit: "رحلة", current_rate: 350, waste_factor: 1, effective_from: "2024-01-01", source: "excel", is_active: true, category: { id: "3", code: "EQP", name_ar: "المعدات", name_en: "Equipment", type: "EQUIPMENT", sort_order: 3, is_active: true } },
   { id: "51", category_id: "3", code: "EQP-COMPACTOR", name_ar: "هراس", name_en: "Compactor", unit: "يوم", current_rate: 2500, waste_factor: 1, effective_from: "2024-01-01", source: "excel", is_active: true, category: { id: "3", code: "EQP", name_ar: "المعدات", name_en: "Equipment", type: "EQUIPMENT", sort_order: 3, is_active: true } },
+
+  // Productivity Labor Rates (from الانتاجيات Excel)
+  ...crewRoles.map((role, index) => ({
+    id: `prod-${index + 100}`,
+    category_id: "2",
+    code: role.code,
+    name_ar: role.nameAr,
+    name_en: role.nameEn,
+    unit: role.unitAr,
+    current_rate: role.dailyRate,
+    waste_factor: 1,
+    effective_from: "2024-01-01",
+    source: "الانتاجيات",
+    is_active: true,
+    notes: role.description,
+    category: { id: "2", code: "LAB", name_ar: "العمالة", name_en: "Labor", type: "LABOR" as RateType, sort_order: 2, is_active: true }
+  })),
 ];
 
 const rateTypeColors: Record<RateType, string> = {

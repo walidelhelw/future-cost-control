@@ -1,0 +1,1060 @@
+[
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫رفع بلوك طابق واحد باليد العاملة‬",
+    "unit": "‫م3‬",
+    "productivity": 4.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تنزيل ورفع بلوك بالونش الجمل‬",
+    "unit": "‫م3‬",
+    "productivity": 12.0,
+    "crew": "‫3عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تحميل وتنزيل بلوك على العربية‬",
+    "unit": "‫م3‬",
+    "productivity": 10.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫نقل وتوزيع بلوك ضمن الابنية فى المنسوب الواحد‬",
+    "unit": "‫م3‬",
+    "productivity": 16.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫رفع بلاط ورخام للطوابق بالونش‬",
+    "unit": "‫م2‬",
+    "productivity": 180.0,
+    "crew": "‫3عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تحميل وتنزيل بلاط ورخام وسيراميك ضمن الادوار‬",
+    "unit": "‫م2‬",
+    "productivity": 200.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تحميل وتنزيل اسمنت على العربية‬",
+    "unit": "‫طن‬",
+    "productivity": 10.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تكسير خرسانة يدوى‬",
+    "unit": "‫م3‬",
+    "productivity": 0.5,
+    "crew": "‫نحات‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تكسير خرسانة بالكمبروسور‬",
+    "unit": "‫م3‬",
+    "productivity": 3.0,
+    "crew": "‫ماكينة + عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تكسير بلوك مع ازالة الناتج‬",
+    "unit": "‫م3‬",
+    "productivity": 3.0,
+    "crew": "‫2نحات‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫ترآيب سقائل معدنية للوجهات‬",
+    "unit": "‫م2‬",
+    "productivity": 70.0,
+    "crew": "‫نجار+2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫فك سقايل للوجهات‬",
+    "unit": "‫م2‬",
+    "productivity": 100.0,
+    "crew": "‫نجار+2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫ازالة البياض الداخلى مع ازالة الناتج‬",
+    "unit": "‫م2‬",
+    "productivity": 16.0,
+    "crew": "‫نحات+عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تحميل وتنزيل حديد تسليح مشكل‬",
+    "unit": "‫طن‬",
+    "productivity": 2.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫تكسير بلاط وازالة الناتج خارج من المبنى‬",
+    "unit": "‫م2‬",
+    "productivity": 30.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫رفع ورص بلوك هوردى‬",
+    "unit": "‫عدد‬",
+    "productivity": 250.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫رفع وتوزيع اسمنت على الادوار بالونش‬",
+    "unit": "‫طن‬",
+    "productivity": 7.0,
+    "crew": "‫2عامل‬"
+  },
+  {
+    "category": "site-services",
+    "sheet": "اعمال تخديميه",
+    "description": "‫رفع وتوزيع رمل على الادوار بالونش‬",
+    "unit": "‫م3‬",
+    "productivity": 6.0,
+    "crew": "‫3عامل‬"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير صرف PVC طول القطعة 3م قطر الماسورة حتى 150 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 145.6,
+    "crew": "‫صناعيى و3مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير صرف PVC طول القطعة 6م قطر الماسورة حتى 150 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 266.4,
+    "crew": "‫صناعيى و3مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير صرف PVC طول القطعة 3م قطر الماسورة حتى 200 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 102.4,
+    "crew": "‫صناعيى و3مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير صرف PVC طول القطعة 6م قطر الماسورة حتى 200 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 204.8,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار والتقفيل بمونة اسمنتية قطر الماسورة 75 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 52.8,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار والتقفيل بمونة اسمنتية قطر الماسورة 100 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 49.6,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار والتقفيل بمونة اسمنتية قطر الماسورة 150 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 36.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار والتقفيل بمونة اسمنتية قطر الماسورة 225 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 24.8,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار والتقفيل بمونة اسمنتية قطر الماسورة 300 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 19.2,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار والتقفيل بمونة اسمنتية قطر الماسورة اآبر 300 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 12.8,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار Flexible Joints قطر الماسورة 75 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 100.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار Flexible Joints قطر الماسورة 100 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 80.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "‫ مواسير من الفخار Flexible Joints قطر الماسورة 150 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 61.6,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار Flexible Joints قطر الماسورة 225 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 32.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار Flexible Joints قطر الماسورة 300 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 20.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير من الفخار Flexible Joints قطر الماسورة اآبر 300 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 16.8,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 1.5 م قطر الماسورة حتى 375 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 30.4,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 1.5 م قطر الماسورة حتى 450 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 28.8,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 1.5 م قطر الماسورة حتى 525 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 27.2,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 1.5 م قطر الماسورة حتى 600 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 26.4,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 1.5 م قطر الماسورة حتى 675 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 23.2,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "‫ مواسير خرسانية طول القطعة 1.5 م قطر الماسورة حتى 750 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 20.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 1.5 م قطر الماسورة حتى 1500 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 2.5,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 1.5 م قطر الماسورة حتى 1800 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 2.1,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 2.5 م قطر الماسورة حتى 375 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 40.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 2.5 م قطر الماسورة حتى 450 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 36.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 2.5 م قطر الماسورة حتى 525 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 32.8,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 2.5 م قطر الماسورة حتى 600 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 32.0,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 2.5 م قطر الماسورة حتى 675 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 29.6,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير خرسانية طول القطعة 2.5 م قطر الماسورة حتى 750 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 28.8,
+    "crew": "‫صناعيى و4مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير UPVC قطر 75 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 26.4,
+    "crew": "‫صناعيى و3مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير UPVC Fittings قطر 75 مم‬‏",
+    "unit": "‫عدد‬‏",
+    "productivity": 24.8,
+    "crew": "‫صناعيى ومساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير Cast Iron قطر 75 مم‬‏",
+    "unit": "‫م.ط‬‏",
+    "productivity": 16.8,
+    "crew": "‫صناعيى و3مساعد‬‏"
+  },
+  {
+    "category": "pipe-installation",
+    "sheet": "تركيب المواسير",
+    "description": "مواسير Cast Iron Fittings قطر 75 مم‬‏",
+    "unit": "‫عدد‬‏",
+    "productivity": 17.6,
+    "crew": "‫صناعيى ومساعد‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، كابل واحد في خندق مع حماية",
+    "unit": "‫م‬‏",
+    "productivity": 49.6,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، كابلان في خندق مع حماية",
+    "unit": "‫م‬‏",
+    "productivity": 44.8,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، 5 كابلات في خندق مع حماية",
+    "unit": "‫م‬‏",
+    "productivity": 34.4,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، 7 كابلات في خندق مع حماية",
+    "unit": "‫م‬‏",
+    "productivity": 29.6,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، 8 كابلات في خندق مع حماية",
+    "unit": "‫م‬‏",
+    "productivity": 28.0,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، كابلان في خندق مع حماية، قطر 100 مم",
+    "unit": "‫م‬‏",
+    "productivity": 14.4,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، كابلان في خندق مع حماية، قطر 135 مم",
+    "unit": "‫م‬‏",
+    "productivity": 12.8,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، 3 كابلات في خندق مع حماية، قطر 100 مم",
+    "unit": "‫م‬‏",
+    "productivity": 8.0,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، 6 كابلات في خندق مع حماية، قطر 100 مم",
+    "unit": "‫م‬‏",
+    "productivity": 5.6,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، 4 كابلات في خندق مع حماية، قطر 150 مم",
+    "unit": "‫م‬‏",
+    "productivity": 9.6,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، 36 كابل في خندق مع حماية، قطر 100 مم",
+    "unit": "‫م‬‏",
+    "productivity": 1.6,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، 10 كابلات في خندق مع حماية، قطر 100 مم",
+    "unit": "‫م‬‏",
+    "productivity": 4.0,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "electrical",
+    "sheet": "اعمال الكهرباء",
+    "description": "تركيب كابل، كابل واحد في خندق مع حماية، قطر 300 مم",
+    "unit": "‫م‬‏",
+    "productivity": 10.4,
+    "crew": "‫كهربائى و2مساعدين‬‏"
+  },
+  {
+    "category": "steel-works",
+    "sheet": "اعمال الحديد",
+    "description": "Steel Frame and Roof Members",
+    "unit": "‫طن‬",
+    "productivity": 4.6,
+    "crew": ""
+  },
+  {
+    "category": "steel-works",
+    "sheet": "اعمال الحديد",
+    "description": "Wall Frame, Bow String Truss and Frame",
+    "unit": "‫طن‬",
+    "productivity": 1.6,
+    "crew": ""
+  },
+  {
+    "category": "steel-works",
+    "sheet": "اعمال الحديد",
+    "description": "Roof Frame, Curved Truss and Frame",
+    "unit": "‫طن‬",
+    "productivity": 5.2,
+    "crew": ""
+  },
+  {
+    "category": "steel-works",
+    "sheet": "اعمال الحديد",
+    "description": "Wall Frame, Glazed Frame and Atrium",
+    "unit": "‫طن‬",
+    "productivity": 0.3,
+    "crew": ""
+  },
+  {
+    "category": "steel-works",
+    "sheet": "اعمال الحديد",
+    "description": "Horizontal heavy duty strutting",
+    "unit": "‫عدد‬",
+    "productivity": 2.0,
+    "crew": ""
+  },
+  {
+    "category": "steel-works",
+    "sheet": "اعمال الحديد",
+    "description": "Diagonal heavy duty strutting",
+    "unit": "‫عدد‬",
+    "productivity": 6.0,
+    "crew": ""
+  },
+  {
+    "category": "steel-works",
+    "sheet": "اعمال الحديد",
+    "description": "Metal Decking, large areas",
+    "unit": "‫م2‬",
+    "productivity": 70.0,
+    "crew": ""
+  },
+  {
+    "category": "steel-works",
+    "sheet": "اعمال الحديد",
+    "description": "Metal Decking, small or complicated",
+    "unit": "‫م2‬",
+    "productivity": 28.0,
+    "crew": ""
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫تركيب ابواب و شابيبك‬",
+    "unit": "كجم",
+    "productivity": 150.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "Windows, Steel, 1.0-3.0m2",
+    "unit": "‫عدد‬",
+    "productivity": 9.6,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "Windows, Steel, 3.0-7.0m2",
+    "unit": "‫عدد‬",
+    "productivity": 4.8,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "Windows, Steel, 7.0-10.0m2",
+    "unit": "‫عدد‬",
+    "productivity": 2.4,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫تركيب اعمال معدنية للاسوار والبلكونات‬",
+    "unit": "كجم",
+    "productivity": 150.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫تركيب اعمال معدنية للاسوار والبلكونات‬",
+    "unit": "‫م.ط‬",
+    "productivity": 20.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫تركيب اعمال معدنية للدرابزين والادراج‬",
+    "unit": "كجم",
+    "productivity": 100.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫تركيب باب جرار‬",
+    "unit": "كجم",
+    "productivity": 150.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫تصنيع خزان سماآة 2-1.5 مم‬",
+    "unit": "كجم",
+    "productivity": 80.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫تصنيع خزانات 3 مم‬",
+    "unit": "كجم",
+    "productivity": 120.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫تصنيع وتركيب زاوية معدنية لفواصل التمدد‬",
+    "unit": "‫م.ط‬",
+    "productivity": 40.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "metal-works",
+    "sheet": "الاعمال المعدنيه",
+    "description": "‫قص وتركيب زجاج على الحديد‬",
+    "unit": "‫م2‬",
+    "productivity": 9.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "شبابيك خشب بعد اكتمال أعمال الحوائط",
+    "unit": "‫م2‬",
+    "productivity": 16.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "تزجيج النوافذ – زجاج مفرد",
+    "unit": "‫م2‬",
+    "productivity": 16.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "تزجيج النوافذ – زجاج مزدوج",
+    "unit": "‫م2‬",
+    "productivity": 10.4,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "حلق أبواب من 1.0 إلى 3.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 1.6,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "حلق أبواب من 3.0 إلى 7.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 3.2,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "حلق أبواب من 7.0 إلى 10.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 6.4,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "شبابيك خشب لين من 1.0 إلى 3.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 1.7,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "شبابيك من 3.0 إلى 7.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 3.2,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "شبابيك من 7.0 إلى 10.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 7.2,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "عتب خشب",
+    "unit": "‫م‬",
+    "productivity": 97.6,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "تعليق الأبواب (المفصلات والإكسسوارات)",
+    "unit": "‫عدد‬",
+    "productivity": 7.2,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "التخريم في الباب وتركيب الكالون",
+    "unit": "‫عدد‬",
+    "productivity": 5.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "تركيب نظام فواصل دورات المياه – ألواح الفصل",
+    "unit": "‫عدد‬",
+    "productivity": 6.4,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "تركيب نظام فواصل دورات المياه – الألواح الأمامية للحائط",
+    "unit": "‫عدد‬",
+    "productivity": 5.6,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "carpentry",
+    "sheet": "اعمال الخشب",
+    "description": "تركيب نظام فواصل دورات المياه – باب مفصلي مثبت بالحائط",
+    "unit": "‫عدد‬",
+    "productivity": 4.8,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "‫ابواب وشبابيك جرارة او مفصلات‬",
+    "unit": "‫م2‬",
+    "productivity": 3.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "‫قواطع المنيوم ثابتة‬",
+    "unit": "‫م2‬",
+    "productivity": 4.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "‫درابزين المنيوم‬",
+    "unit": "‫م2‬",
+    "productivity": 6.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "شبابيك ألومنيوم من 1.0 إلى 3.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 6.4,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "شبابيك ألومنيوم من 3.0 إلى 7.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 3.2,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "شبابيك ألومنيوم من 7.0 إلى 10.0 م²",
+    "unit": "‫عدد‬",
+    "productivity": 2.4,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "وزرة ألومنيوم مثبتة بالمسامير على مسافات 150–300 مم",
+    "unit": "‫م‬",
+    "productivity": 60.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "حوائط ستائر زجاجية – المرحلة الأولى",
+    "unit": "‫م2‬",
+    "productivity": 9.6,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "حوائط ستائر زجاجية – المرحلة الثانية",
+    "unit": "‫م2‬",
+    "productivity": 8.8,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "حوائط ستائر زجاجية عالية الجودة – تركيب ثلاثي المراحل",
+    "unit": "‫م2‬",
+    "productivity": 25.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "aluminum",
+    "sheet": "اعمال الالمونيوم",
+    "description": "‫تركيب واجهات المنيوم مستمرة‬",
+    "unit": "‫م2‬",
+    "productivity": 3.0,
+    "crew": "‫صناعيى ومساعد‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "‫بلاطات خرسانية على طبقة رمل مدموكة ‬",
+    "unit": "‫م2‬",
+    "productivity": 20.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "‫بلاطات خرسانية على طبقة مونة اسمنتية‬",
+    "unit": "‫م2‬",
+    "productivity": 10.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "‫اعمال حجر بازلت على مونة اسمنتية‬",
+    "unit": "‫م2‬",
+    "productivity": 2.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "‫اعمال الحجر الصناعى على فرشة رمل‬",
+    "unit": "‫م2‬",
+    "productivity": 20.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "أعمال بلاطات طوب",
+    "unit": "‫م2‬",
+    "productivity": 9.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "ممرات حصوية شاملة تجهيز طبقة الأساس",
+    "unit": "‫م2‬",
+    "productivity": 84.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "‫فرش طبقة الرمل وتسويتها فبل وضع النجيلة‬",
+    "unit": "‫م2‬",
+    "productivity": 20.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "‫تركيب طبقات النجيلة‬",
+    "unit": "‫م2‬",
+    "productivity": 130.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "‫زرع شجر بطول 75 سم‬",
+    "unit": "‫عدد‬",
+    "productivity": 32.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "landscape",
+    "sheet": "اعمال الاند اسكيب",
+    "description": "‫زرع شجر بطول اآبر 75 سم‬",
+    "unit": "‫عدد‬",
+    "productivity": 12.0,
+    "crew": "‫مجموعة عمل‬"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "مصعد هيدروليكي – تركيب من 2 إلى 3 أدوار",
+    "unit": "‫دور‬",
+    "productivity": 3.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "مصعد هيدروليكي – تركيب 4 أدوار فأكثر",
+    "unit": "‫دور‬",
+    "productivity": 2.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "مصعد عادي – تصنيع واختبار وتسليم",
+    "unit": "‫عدد‬",
+    "productivity": 12.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "نوع ترس (Truss) – التركيب الكامل (باستثناء الأعمال المعمارية)",
+    "unit": "‫عدد‬",
+    "productivity": 60.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "نوع ترس (Truss) – تصنيع واختبار وتسليم",
+    "unit": "‫عدد‬",
+    "productivity": 1.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "نوع ترس (Truss) – المرحلة A تجميع الهيكل المعدني",
+    "unit": "‫عدد‬",
+    "productivity": 6.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "نوع ترس (Truss) – إيقاف الأعمال لاستكمال التشطيبات المحيطة",
+    "unit": "‫عدد‬",
+    "productivity": 5.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "نوع ترس (Truss) – المرحلة B تركيب الأرضيات والزجاج وغيرها",
+    "unit": "‫عدد‬",
+    "productivity": 2.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "نوع ترس (Truss) – المرحلة C اختبارات الأداء",
+    "unit": "‫عدد‬",
+    "productivity": 2.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  },
+  {
+    "category": "elevator",
+    "sheet": "اعمال الاسانسير",
+    "description": "نوع ترس (Truss) – المرحلة D اختبار التحميل الكامل",
+    "unit": "‫عدد‬",
+    "productivity": 2.0,
+    "crew": "",
+    "note": "بالاسبوع"
+  }
+]

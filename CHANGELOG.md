@@ -7,6 +7,57 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.2.0] - 2026-02-02
+
+### Added
+
+#### Productivity Module - Complete Data Integration
+- **131 productivity templates** extracted from الانتاجيات Excel workbook (up from 30)
+- **36 labor roles** with daily rates in EGP (up from 33)
+- **31 work categories** organized by construction phase (up from 26)
+- New categories: site-services, steel-works, metal-works, landscape, elevator
+
+#### Productivity Templates by Category
+| Category | Count | Description |
+|----------|-------|-------------|
+| اعمال تخديميه | 18 | Site services, material handling, demolition |
+| تركيب المواسير | 36 | PVC, cast iron, concrete pipe installation |
+| اعمال الكهرباء | 15 | Cable installation, conduit work |
+| اعمال الحديد | 8 | Structural steel frames, trusses, decking |
+| الاعمال المعدنيه | 12 | Metal doors, windows, railings, tanks |
+| اعمال الخشب | 14 | Carpentry, door frames, glazing |
+| اعمال الالمونيوم | 12 | Aluminum windows, curtain walls, facades |
+| اعمال الاند اسكيب | 10 | Paving, landscaping, grass installation |
+| اعمال الاسانسير | 10 | Elevator installation and testing |
+
+#### New Components
+- `ProductivityTemplateSelector` - Template picker for Estimates workflow
+- `SourceComparison` - Multi-source productivity comparison chart
+- `generate-templates.py` - Script to regenerate templates from JSON
+
+#### Estimates Integration
+- Added "قوالب الإنتاجية" tab in Add Item dialog
+- Productivity templates auto-convert to labor cost items
+- Labor rates from crew-roles integrated into rate lookup
+- Real-time cost preview based on productivity rates
+
+#### Rate Database Enhancement
+- Added 36 productivity labor rates to Rate Database
+- Source: الانتاجيات Excel workbook
+- Categories: masonry, concrete, finishing, MEP, structural, general, equipment, supervision
+
+### Changed
+- Productivity page now shows 131 activities (was 30)
+- Stats display updated: 131 activities, 31 categories, 36 roles
+- Estimates page bundle size: 8.12 kB (includes productivity integration)
+
+### Technical
+- Added `extracted-productivity.json` for raw Excel data
+- Python script for template generation from JSON
+- Updated TypeScript interfaces for new data sources
+
+---
+
 ## [0.1.0] - 2024-02-02
 
 ### Added

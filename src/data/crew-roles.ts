@@ -407,6 +407,48 @@ export const crewRoles: CrewRole[] = [
     category: 'supervision',
     description: 'Site foreman supervising work crews'
   },
+
+  // ========================================
+  // أعمال الهدم والتكسير - Demolition Works
+  // ========================================
+  {
+    code: 'LAB-DEMOLITION',
+    nameAr: 'نحات',
+    nameEn: 'Demolition Worker',
+    unit: 'day',
+    unitAr: 'يوم',
+    dailyRate: 250,
+    category: 'general',
+    description: 'Skilled demolition and breaking work'
+  },
+
+  // ========================================
+  // صناعيين - Craftsmen
+  // ========================================
+  {
+    code: 'LAB-CRAFTSMAN',
+    nameAr: 'صناعي',
+    nameEn: 'Craftsman',
+    unit: 'day',
+    unitAr: 'يوم',
+    dailyRate: 320,
+    category: 'finishing',
+    description: 'Skilled craftsman for specialized work'
+  },
+
+  // ========================================
+  // معدات - Equipment
+  // ========================================
+  {
+    code: 'EQP-COMPRESSOR',
+    nameAr: 'كمبروسور/ماكينة تكسير',
+    nameEn: 'Compressor/Breaker',
+    unit: 'day',
+    unitAr: 'يوم',
+    dailyRate: 500,
+    category: 'equipment',
+    description: 'Pneumatic breaker or compressor equipment'
+  },
 ];
 
 /**

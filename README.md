@@ -23,8 +23,8 @@ Future Cost Control is a comprehensive construction cost estimation and manageme
 ## Features | المميزات
 
 ### 1. Rate Database | قاعدة بيانات الأسعار
-- **51 rates** extracted from actual Excel cost estimation sheets
-- Categories: Materials (20), Labor (22), Equipment (9)
+- **87 rates** extracted from actual Excel cost estimation sheets
+- Categories: Materials (20), Labor (58), Equipment (9)
 - Bilingual support (Arabic/English)
 - Search and filter functionality
 - CRUD operations for rate management
@@ -46,11 +46,14 @@ Future Cost Control is a comprehensive construction cost estimation and manageme
 - Categories: Excavation, Concrete, Masonry, Finishing, Waterproofing
 
 ### 4. Productivity Rates | معدلات الإنتاجية
-- **30+ productivity templates** for construction activities
-- Crew composition calculator
-- Condition factor adjustments (weather, access, experience)
-- Daily cost estimation
-- Multiple data sources (Petrojet, H.A, El-Baqari/El-Nadi)
+- **131 productivity templates** extracted from الانتاجيات Excel workbook
+- **36 labor roles** with daily rates (بنا، نجار، حداد، كهربائي، سباك، etc.)
+- **31 work categories** covering all construction phases
+- Crew composition calculator with visual display
+- Condition factor adjustments (26 factors across 5 categories)
+- Daily cost estimation with completion date projection
+- Multiple data sources (9 Excel sheets including electrical, plumbing, aluminum, carpentry)
+- **Integration with Estimates module** - use productivity templates directly in cost estimates
 
 ### 5. Supplier Evaluation | تقييم الموردين
 - 7-criteria scoring system

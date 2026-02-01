@@ -64,6 +64,10 @@ import {
   DEFAULT_COST_CONFIG,
 } from "@/lib/calculations";
 import type { EstimateStatus } from "@/lib/supabase";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ProductivityTemplateSelector, type LaborItem } from "@/components/productivity";
+import type { ProductivityTemplate } from "@/data/productivity-templates";
+import { getCrewRoleByCode } from "@/data/crew-roles";
 
 interface EstimateItemData {
   id: string;
@@ -89,9 +93,20 @@ interface EstimateData {
   created_at: string;
 }
 
+import { crewRoles } from "@/data/crew-roles";
+
+// Build productivity labor rates from crew-roles data
+const productivityLaborRates: Record<string, number> = {};
+crewRoles.forEach(role => {
+  productivityLaborRates[role.code] = role.dailyRate;
+});
+
 // Real rate data extracted from Excel files (Cost Estimation Sheets)
 const sampleRates: Record<string, number> = {
-  // Labor Rates (from Sheet 16)
+  // Productivity Labor Rates (from الانتاجيات)
+  ...productivityLaborRates,
+
+  // Legacy Labor Rates (from Sheet 16) - kept for backwards compatibility
   "LAB-CARP-FND": 10,
   "LAB-CARP-SLAB": 50,
   "LAB-CARP-RFND": 3,
@@ -537,6 +552,34 @@ export default function EstimatesPage() {
     }
   };
 
+  // Handle productivity template selection
+  const handleSelectProductivityTemplate = (template: ProductivityTemplate, laborItems: LaborItem[]) => {
+    // Convert productivity labor items to ComponentItem format
+    // The qty represents crew count, we need to convert to daily cost factor
+    const laborComponents: ComponentItem[] = laborItems.map(item => {
+      const role = getCrewRoleByCode(item.rateCode);
+      // For productivity-based items, qty = (1 / productivityRate) * crew_member_qty
+      // This gives cost per unit based on how many days of that crew member are needed per unit
+      const qtyPerUnit = item.qty / template.productivityRate;
+      return {
+        rateCode: item.rateCode,
+        qty: qtyPerUnit,
+        description: item.description
+      };
+    });
+
+    setNewItemForm({
+      ...newItemForm,
+      boq_code: template.code,
+      description_ar: template.nameAr,
+      description_en: template.nameEn || "",
+      unit: template.unitAr,
+      materials: [], // Productivity templates focus on labor
+      labor: laborComponents,
+      equipment: [],
+    });
+  };
+
   const handleAddItem = () => {
     if (!selectedEstimate || !itemPreview) return;
 
@@ -950,26 +993,42 @@ export default function EstimatesPage() {
 
       {/* Add Item Dialog */}
       <Dialog open={itemFormOpen} onOpenChange={setItemFormOpen}>
-        <DialogContent className="max-w-3xl">
+        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle>{t("addItem")}</DialogTitle>
           </DialogHeader>
+          <Tabs defaultValue="boq" className="w-full">
+            <TabsList className="grid w-full grid-cols-2">
+              <TabsTrigger value="boq">قوالب BOQ</TabsTrigger>
+              <TabsTrigger value="productivity">قوالب الإنتاجية</TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="boq" className="space-y-4">
+              <div className="space-y-2">
+                <Label>قالب BOQ</Label>
+                <Select onValueChange={handleSelectTemplate}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="اختر قالب BOQ..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {boqTemplates.map((template) => (
+                      <SelectItem key={template.code} value={template.code}>
+                        {template.code} - {template.name_ar}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+            </TabsContent>
+
+            <TabsContent value="productivity" className="space-y-4">
+              <ProductivityTemplateSelector
+                onSelect={handleSelectProductivityTemplate}
+              />
+            </TabsContent>
+          </Tabs>
+
           <div className="grid grid-cols-2 gap-4 py-4">
-            <div className="col-span-2 space-y-2">
-              <Label>قالب BOQ</Label>
-              <Select onValueChange={handleSelectTemplate}>
-                <SelectTrigger>
-                  <SelectValue placeholder="اختر قالب BOQ..." />
-                </SelectTrigger>
-                <SelectContent>
-                  {boqTemplates.map((template) => (
-                    <SelectItem key={template.code} value={template.code}>
-                      {template.code} - {template.name_ar}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-            </div>
             <div className="space-y-2">
               <Label>{t("boqCode")}</Label>
               <Input
