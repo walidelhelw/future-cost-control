@@ -42,4 +42,5 @@ No live Gemini calls were made during verification. The assistant smoke route us
 ## Notes
 
 - Local Supabase SQL lint could not run because Docker is not running, so the migration was not applied to a local Postgres instance in this session.
+- Remote `supabase db push --yes` was attempted, but Supabase rejected the CLI login-role setup without `SUPABASE_DB_PASSWORD`; the migration is committed and ready to apply once that password is available.
 - V2 requires an invited Supabase Auth user to see authenticated dashboard data; unauthenticated users see the invite-only gate.
