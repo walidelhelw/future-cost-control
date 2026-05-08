@@ -339,5 +339,33 @@
     "allCategories": "All Categories",
     "allSources": "All Sources",
     "results": "results"
+  },
+  "v2": {
+    "title": "Future Command Center",
+    "subtitle": "Construction cost control from estimate to committed and actual spend",
+    "assistant": "Future",
+    "askPlaceholder": "Ask Future about cost, suppliers, risks, or cashflow...",
+    "commandSearch": "Search V2 or ask Future",
+    "secureMode": "Secure mode",
+    "authRequired": "Invite-only access",
+    "signInHint": "Use Supabase email authentication to enter the command center.",
+    "modules": {
+      "command": "Command Center",
+      "estimate": "Smart Estimate",
+      "cost": "Cost Spine",
+      "field": "Field Mode",
+      "flow": "Future Flow",
+      "change": "Change Order Radar",
+      "rfq": "RFQ Comparison",
+      "admin": "Admin"
+    },
+    "pipeline": {
+      "upload": "Upload file",
+      "parse": "Parse tables",
+      "extract": "Extract BOQ",
+      "match": "Match rates",
+      "validate": "Validate quality",
+      "commit": "Create draft estimate"
+    }
   }
 }

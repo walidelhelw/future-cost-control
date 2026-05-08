@@ -272,18 +272,18 @@ ALTER TABLE validation_results ENABLE ROW LEVEL SECURITY;
 ALTER TABLE indirect_cost_config ENABLE ROW LEVEL SECURITY;
 ALTER TABLE audit_log ENABLE ROW LEVEL SECURITY;
 
--- Allow all for development (customize for production)
-CREATE POLICY "Allow all for rate_categories" ON rate_categories FOR ALL USING (true);
-CREATE POLICY "Allow all for master_rates" ON master_rates FOR ALL USING (true);
-CREATE POLICY "Allow all for rate_history" ON rate_history FOR ALL USING (true);
-CREATE POLICY "Allow all for boq_categories" ON boq_categories FOR ALL USING (true);
-CREATE POLICY "Allow all for boq_templates" ON boq_templates FOR ALL USING (true);
-CREATE POLICY "Allow all for projects" ON projects FOR ALL USING (true);
-CREATE POLICY "Allow all for estimates" ON estimates FOR ALL USING (true);
-CREATE POLICY "Allow all for estimate_items" ON estimate_items FOR ALL USING (true);
-CREATE POLICY "Allow all for validation_results" ON validation_results FOR ALL USING (true);
-CREATE POLICY "Allow all for indirect_cost_config" ON indirect_cost_config FOR ALL USING (true);
-CREATE POLICY "Allow all for audit_log" ON audit_log FOR ALL USING (true);
+-- V2 migration 003 replaces these bootstrap-deny policies with org/project scoped policies.
+CREATE POLICY "Bootstrap deny rate_categories" ON rate_categories FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny master_rates" ON master_rates FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny rate_history" ON rate_history FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny boq_categories" ON boq_categories FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny boq_templates" ON boq_templates FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny projects" ON projects FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny estimates" ON estimates FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny estimate_items" ON estimate_items FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny validation_results" ON validation_results FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny indirect_cost_config" ON indirect_cost_config FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny audit_log" ON audit_log FOR ALL USING (false);
 
 -- ============================================
 -- TRIGGERS FOR UPDATED_AT

@@ -169,14 +169,14 @@ ALTER TABLE boq_estimate_items ENABLE ROW LEVEL SECURITY;
 ALTER TABLE cashflow_projects ENABLE ROW LEVEL SECURITY;
 ALTER TABLE cashflow_periods ENABLE ROW LEVEL SECURITY;
 
--- For development, allow all operations (customize for production)
-CREATE POLICY "Allow all for authenticated users" ON suppliers FOR ALL USING (true);
-CREATE POLICY "Allow all for authenticated users" ON supplier_evaluations FOR ALL USING (true);
-CREATE POLICY "Allow all for authenticated users" ON project_risks FOR ALL USING (true);
-CREATE POLICY "Allow all for authenticated users" ON boq_estimates FOR ALL USING (true);
-CREATE POLICY "Allow all for authenticated users" ON boq_estimate_items FOR ALL USING (true);
-CREATE POLICY "Allow all for authenticated users" ON cashflow_projects FOR ALL USING (true);
-CREATE POLICY "Allow all for authenticated users" ON cashflow_periods FOR ALL USING (true);
+-- V2 migration 003 replaces these bootstrap-deny policies with org/project scoped policies.
+CREATE POLICY "Bootstrap deny suppliers" ON suppliers FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny supplier_evaluations" ON supplier_evaluations FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny project_risks" ON project_risks FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny boq_estimates" ON boq_estimates FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny boq_estimate_items" ON boq_estimate_items FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny cashflow_projects" ON cashflow_projects FOR ALL USING (false);
+CREATE POLICY "Bootstrap deny cashflow_periods" ON cashflow_periods FOR ALL USING (false);
 
 -- ============================================
 -- TRIGGERS FOR UPDATED_AT

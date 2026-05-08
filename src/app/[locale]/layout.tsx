@@ -38,7 +38,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <div className="relative min-h-screen">
             <Sidebar />
-            <main className="rtl:mr-64 ltr:ml-64">
+            <main className="lg:rtl:mr-64 lg:ltr:ml-64">
               <Header />
               <div className="p-6">{children}</div>
             </main>

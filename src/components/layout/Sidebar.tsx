@@ -71,7 +71,7 @@ export function Sidebar() {
   const locale = useLocale();
 
   return (
-    <aside className="fixed top-0 right-0 z-40 h-screen w-64 border-l bg-card transition-transform rtl:right-0 rtl:border-l rtl:border-r-0 ltr:left-0 ltr:border-r ltr:border-l-0">
+    <aside className="fixed top-0 right-0 z-40 hidden h-screen w-64 border-l bg-card transition-transform rtl:right-0 rtl:border-l rtl:border-r-0 ltr:left-0 ltr:border-r ltr:border-l-0 lg:block">
       <div className="flex h-full flex-col">
         {/* Logo */}
         <div className="flex h-16 items-center gap-3 border-b px-4">
