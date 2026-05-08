@@ -7,7 +7,6 @@
 
   *Construction Cost Estimation & Control System*
 
-  [![Live Demo](https://img.shields.io/badge/Live-Demo-success)](https://future-cost-control.vercel.app)
   [![Next.js](https://img.shields.io/badge/Next.js-14-black)](https://nextjs.org/)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)](https://www.typescriptlang.org/)
 </div>
@@ -85,7 +84,7 @@ Future Cost Control is a comprehensive construction cost estimation and manageme
 | **Charts** | Recharts |
 | **i18n** | next-intl (Arabic RTL + English) |
 | **Database** | Supabase (PostgreSQL) |
-| **Deployment** | Vercel |
+| **Deployment** | Netlify |
 
 ## Project Structure | هيكل المشروع
 
@@ -181,12 +180,33 @@ Contingency = (Subtotal + Profit) × Contingency Rate
 Selling Price = Subtotal + Profit + Contingency
 ```
 
-## Live Demo | العرض المباشر
+## Deployment | النشر
 
-**URL**: [https://future-cost-control.vercel.app](https://future-cost-control.vercel.app)
+This project is configured for **Netlify** (free tier, full Next.js 14 App Router support).
 
+### Deploy to Netlify
+
+1. Push your repo to GitHub (already done: `walidelhelw/future-cost-control`).
+2. Go to [app.netlify.com](https://app.netlify.com) → **Add new site** → **Import from Git**.
+3. Pick the repo. Netlify auto-detects Next.js (uses `netlify.toml` in this repo).
+4. Add environment variables in **Site settings → Environment variables**:
+   - `NEXT_PUBLIC_SUPABASE_URL`
+   - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+5. Click **Deploy**. Done.
+
+Routes:
 - Arabic version: `/ar`
 - English version: `/en`
+
+### Other free options
+
+| Platform | Notes |
+|----------|-------|
+| **Netlify** *(current)* | Best Next.js 14 support, free 100GB/mo bandwidth |
+| **Cloudflare Pages** | Fastest CDN, but requires Edge Runtime (some Supabase server features won't work) |
+| **Render** | Free tier sleeps after 15 min idle |
+| **Railway** | $5/month free credit |
 
 ## Screenshots | لقطات الشاشة
 
