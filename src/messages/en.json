@@ -347,8 +347,13 @@
     "askPlaceholder": "Ask Future about cost, suppliers, risks, or cashflow...",
     "commandSearch": "Search V2 or ask Future",
     "secureMode": "Secure mode",
-    "authRequired": "Invite-only access",
-    "signInHint": "Use Supabase email authentication to enter the command center.",
+    "shell": {
+      "ceoEdition": "CEO Edition",
+      "demoData": "Demo data",
+      "tagline": "Bloomberg × Linear command layer for cost, approvals, and AI",
+      "openDemo": "Open demo",
+      "command": "Command"
+    },
     "modules": {
       "command": "Command Center",
       "estimate": "Smart Estimate",

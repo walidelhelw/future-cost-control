@@ -347,8 +347,13 @@
     "askPlaceholder": "اسأل Future عن التكاليف أو الموردين أو المخاطر...",
     "commandSearch": "ابحث في V2 أو اسأل Future",
     "secureMode": "وضع مؤمن",
-    "authRequired": "الدخول بدعوة فقط",
-    "signInHint": "استخدم بريد Supabase للدخول إلى مركز القيادة.",
+    "shell": {
+      "ceoEdition": "نسخة الرئيس التنفيذي",
+      "demoData": "بيانات تجريبية",
+      "tagline": "Bloomberg × Linear لمراقبة التكلفة والموافقات والذكاء الاصطناعي",
+      "openDemo": "عرض مفتوح",
+      "command": "الأوامر"
+    },
     "modules": {
       "command": "مركز القيادة",
       "estimate": "التقدير الذكي",

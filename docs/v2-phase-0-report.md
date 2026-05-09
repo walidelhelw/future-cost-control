@@ -2,7 +2,7 @@
 
 ## What Shipped
 
-- Isolated `/[locale]/v2` surface with invite-only Supabase email/password gate.
+- Isolated `/[locale]/v2` surface that opens directly to the V2 CEO demo shell.
 - CEO-edition V2 shell: dark command layer, RTL-aware navigation, command palette, floating Future assistant, responsive bottom nav.
 - Command Center route, Smart Estimate route, and polished operational route targets for Cost Spine, Field Mode, Flow, Change Orders, RFQ, Ask Future, and Admin.
 - V2 server foundation in `src/lib/v2`: Supabase SSR clients, auth/RBAC helpers, DAL modules, typed assistant tools, Gemini wrapper, AI cost logging.
@@ -43,4 +43,4 @@ No live Gemini calls were made during verification. The assistant smoke route us
 
 - Local Supabase SQL lint could not run because Docker is not running, so the migration was not applied to a local Postgres instance in this session.
 - Remote `supabase db push --yes` was attempted, but Supabase rejected the CLI login-role setup without `SUPABASE_DB_PASSWORD`; the migration is committed and ready to apply once that password is available.
-- V2 requires an invited Supabase Auth user to see authenticated dashboard data; unauthenticated users see the invite-only gate.
+- V2 route rendering is open for the CEO demo. Data-mutating and assistant API routes still enforce the V2 Supabase/RBAC checks.

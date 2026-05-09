@@ -5,6 +5,7 @@ import type { ReactNode } from "react";
 import { motion } from "framer-motion";
 import { Toaster } from "sonner";
 import { Keyboard, Radio, ShieldCheck, Users } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Button } from "@/components/ui/button";
 import { CommandPalette } from "./CommandPalette";
 import { FutureAssistant } from "./FutureAssistant";
@@ -12,10 +13,6 @@ import { V2Navigation } from "./V2Navigation";
 import type { V2Locale } from "./localize";
 
 type V2ShellProps = {
-  authState?: {
-    authenticated: boolean;
-    email?: string;
-  };
   children: ReactNode;
   locale: V2Locale;
 };
@@ -25,7 +22,8 @@ function isTypingTarget(target: EventTarget | null) {
   return Boolean(target.closest("input, textarea, select, [contenteditable='true']"));
 }
 
-export function V2Shell({ authState, children, locale }: V2ShellProps) {
+export function V2Shell({ children, locale }: V2ShellProps) {
+  const t = useTranslations("v2.shell");
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [assistantOpen, setAssistantOpen] = useState(false);
 
@@ -64,16 +62,14 @@ export function V2Shell({ authState, children, locale }: V2ShellProps) {
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2">
               <span className="rounded border border-cyan-300/30 bg-cyan-300/10 px-2 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-cyan-100">
-                {locale === "ar" ? "نسخة الرئيس التنفيذي" : "CEO Edition"}
+                {t("ceoEdition")}
               </span>
               <span className="rounded border border-emerald-300/20 bg-emerald-300/10 px-2 py-1 text-[11px] text-emerald-100">
-                {locale === "ar" ? "واجهة معزولة عن V1" : "V1 isolated shell"}
+                {t("demoData")}
               </span>
             </div>
             <p className="mt-1 truncate text-xs text-slate-500">
-              {locale === "ar"
-                ? "Bloomberg × Linear لمراقبة التكلفة والموافقات والذكاء الاصطناعي"
-                : "Bloomberg × Linear command layer for cost, approvals, and AI"}
+              {t("tagline")}
             </p>
           </div>
 
@@ -85,11 +81,7 @@ export function V2Shell({ authState, children, locale }: V2ShellProps) {
 
           <div className="hidden items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-slate-300 sm:flex">
             <ShieldCheck className="h-4 w-4 text-emerald-300" />
-            <span>
-              {authState?.authenticated
-                ? authState.email ?? (locale === "ar" ? "جلسة نشطة" : "Active session")
-                : locale === "ar" ? "دخول بدعوة فقط" : "Invite-only"}
-            </span>
+            <span>{t("openDemo")}</span>
           </div>
 
           <div className="hidden items-center -space-x-2 rtl:space-x-reverse sm:flex">
@@ -115,7 +107,7 @@ export function V2Shell({ authState, children, locale }: V2ShellProps) {
             variant="outline"
           >
             <Radio className="me-2 h-4 w-4 text-cyan-200" />
-            {locale === "ar" ? "الأوامر" : "Command"}
+            {t("command")}
           </Button>
         </header>
 
