@@ -11,22 +11,22 @@ type EgyptProjectMapProps = {
 
 export function EgyptProjectMap({ locale }: EgyptProjectMapProps) {
   return (
-    <section className="relative min-h-[430px] overflow-hidden rounded-md border border-white/10 bg-[#07111d]/80 p-4 shadow-[inset_0_0_80px_rgba(0,212,212,0.08)]">
+    <section className="relative min-h-[430px] overflow-hidden rounded-md border border-slate-200 bg-white/90 p-4 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
       <div className="relative z-10 flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-xs uppercase tracking-[0.28em] text-cyan-200/70">
+          <p className="text-xs uppercase tracking-[0.28em] text-cyan-700">
             {locale === "ar" ? "خريطة المشاريع" : "Egypt project map"}
           </p>
-          <h2 className="mt-2 text-2xl font-semibold text-white">
+          <h2 className="mt-2 text-2xl font-semibold text-slate-950">
             {locale === "ar" ? "تكلفة حية عبر مصر" : "Live cost pulse across Egypt"}
           </h2>
         </div>
-        <div className="rounded-md border border-amber-300/20 bg-amber-300/10 px-3 py-2 text-xs text-amber-100">
+        <div className="rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-700">
           {locale === "ar" ? "2 إنذارات تكلفة" : "2 cost alerts"}
         </div>
       </div>
 
-      <div className="absolute inset-0 opacity-60">
+      <div className="absolute inset-0 opacity-70">
         <svg className="h-full w-full" viewBox="0 0 900 560" role="img">
           <defs>
             <linearGradient id="egypt-v2" x1="0" x2="1" y1="0" y2="1">
@@ -37,19 +37,19 @@ export function EgyptProjectMap({ locale }: EgyptProjectMapProps) {
           <path
             d="M392 56 516 66 534 147 505 238 536 335 502 486 376 504 340 392 298 306 328 206 304 112Z"
             fill="url(#egypt-v2)"
-            stroke="#67e8f9"
-            strokeOpacity="0.42"
+            stroke="#0891b2"
+            strokeOpacity="0.34"
             strokeWidth="2"
           />
           <path
             d="M536 150 686 242 626 356 536 335 506 238Z"
             fill="rgba(0,212,212,0.12)"
-            stroke="#67e8f9"
+            stroke="#0891b2"
             strokeOpacity="0.22"
             strokeWidth="2"
           />
-          <path d="M505 85 C475 180 472 260 500 358" stroke="#f8fafc" strokeDasharray="6 8" strokeOpacity="0.15" strokeWidth="2" />
-          <path d="M300 220 C394 232 460 226 538 238" stroke="#f8fafc" strokeDasharray="6 8" strokeOpacity="0.12" strokeWidth="2" />
+          <path d="M505 85 C475 180 472 260 500 358" stroke="#334155" strokeDasharray="6 8" strokeOpacity="0.18" strokeWidth="2" />
+          <path d="M300 220 C394 232 460 226 538 238" stroke="#334155" strokeDasharray="6 8" strokeOpacity="0.14" strokeWidth="2" />
         </svg>
       </div>
 
@@ -62,21 +62,21 @@ export function EgyptProjectMap({ locale }: EgyptProjectMapProps) {
           style={{ left: `${pin.x}%`, top: `${pin.y}%` }}
           transition={{ delay: 0.1 + index * 0.12, duration: 2.4, repeat: Infinity }}
         >
-          <button className="relative grid h-10 w-10 place-items-center rounded-full border border-cyan-200/50 bg-cyan-300/15 text-cyan-100 shadow-[0_0_28px_rgba(0,212,212,0.36)]">
+          <button className="relative grid h-10 w-10 place-items-center rounded-full border border-cyan-300 bg-cyan-50 text-cyan-700 shadow-[0_14px_28px_rgba(14,165,233,0.22)]">
             {pin.alert ? (
               <span className="absolute h-10 w-10 animate-ping rounded-full bg-amber-300/30" />
             ) : null}
             <MapPin className="relative h-5 w-5" />
           </button>
-          <div className="pointer-events-none absolute top-12 w-56 rounded-md border border-white/10 bg-black/90 p-3 text-start opacity-0 shadow-xl transition group-hover:opacity-100 rtl:end-0 ltr:start-0">
+          <div className="pointer-events-none absolute top-12 w-56 rounded-md border border-slate-200 bg-white p-3 text-start opacity-0 shadow-xl transition group-hover:opacity-100 rtl:end-0 ltr:start-0">
             <div className="flex items-center gap-2 text-xs text-slate-400">
               {pin.alert ? <AlertTriangle className="h-3.5 w-3.5 text-amber-300" /> : null}
               <span>{pickText(pin.city, locale)}</span>
             </div>
-            <p className="mt-1 text-sm font-semibold text-white">
+            <p className="mt-1 text-sm font-semibold text-slate-950">
               {pickText(pin.name, locale)}
             </p>
-            <p className="mt-2 text-xs text-cyan-100" dir="ltr">
+            <p className="mt-2 text-xs text-cyan-700" dir="ltr">
               {formatV2Money(pin.value * 1_000_000, locale)}
             </p>
           </div>
@@ -89,9 +89,9 @@ export function EgyptProjectMap({ locale }: EgyptProjectMapProps) {
           ["EV", "EGP 176M"],
           ["AC", "EGP 184M"],
         ].map(([label, value]) => (
-          <div className="rounded-md border border-white/10 bg-black/45 px-3 py-2" key={label}>
+          <div className="rounded-md border border-slate-200 bg-white/85 px-3 py-2 shadow-sm" key={label}>
             <p className="text-[10px] text-slate-500">{label}</p>
-            <p className="text-sm font-semibold text-white">{value}</p>
+            <p className="text-sm font-semibold text-slate-950">{value}</p>
           </div>
         ))}
       </div>

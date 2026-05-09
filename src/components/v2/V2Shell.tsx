@@ -47,24 +47,24 @@ export function V2Shell({ children, locale }: V2ShellProps) {
 
   return (
     <div
-      className="fixed inset-0 z-[80] flex overflow-hidden bg-[#05070d] text-slate-100"
+      className="fixed inset-0 z-[80] flex overflow-hidden bg-[#f5f7fb] text-slate-950"
       dir={locale === "ar" ? "rtl" : "ltr"}
     >
-      <div className="pointer-events-none absolute inset-0 opacity-80">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_10%,rgba(0,212,212,0.18),transparent_28%),radial-gradient(circle_at_80%_0%,rgba(245,158,11,0.12),transparent_26%),linear-gradient(135deg,#05070d_0%,#07111f_48%,#03040a_100%)]" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:44px_44px]" />
+      <div className="pointer-events-none absolute inset-0 opacity-90">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_8%,rgba(14,165,233,0.16),transparent_30%),radial-gradient(circle_at_82%_0%,rgba(245,158,11,0.12),transparent_26%),linear-gradient(135deg,#f8fbff_0%,#eef6f8_48%,#f7f2e8_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.045)_1px,transparent_1px),linear-gradient(90deg,rgba(15,23,42,0.04)_1px,transparent_1px)] bg-[size:44px_44px]" />
       </div>
 
       <V2Navigation locale={locale} />
 
       <section className="relative z-10 flex min-w-0 flex-1 flex-col">
-        <header className="flex min-h-16 items-center gap-3 border-b border-white/10 bg-black/20 px-4 backdrop-blur-xl lg:px-6">
+        <header className="flex min-h-16 items-center gap-3 border-b border-slate-200/80 bg-white/85 px-4 shadow-[0_12px_34px_rgba(15,23,42,0.06)] backdrop-blur-xl lg:px-6">
           <div className="min-w-0 flex-1">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="rounded border border-cyan-300/30 bg-cyan-300/10 px-2 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-cyan-100">
+              <span className="rounded border border-cyan-200 bg-cyan-50 px-2 py-1 text-[11px] font-medium uppercase tracking-[0.2em] text-cyan-700">
                 {t("ceoEdition")}
               </span>
-              <span className="rounded border border-emerald-300/20 bg-emerald-300/10 px-2 py-1 text-[11px] text-emerald-100">
+              <span className="rounded border border-emerald-200 bg-emerald-50 px-2 py-1 text-[11px] text-emerald-700">
                 {t("demoData")}
               </span>
             </div>
@@ -73,14 +73,14 @@ export function V2Shell({ children, locale }: V2ShellProps) {
             </p>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-slate-300 md:flex">
-            <Keyboard className="h-4 w-4 text-cyan-200" />
+          <div className="hidden items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 shadow-sm md:flex">
+            <Keyboard className="h-4 w-4 text-cyan-700" />
             <span>⌘K</span>
-            <span className="text-slate-600">/</span>
+            <span className="text-slate-400">/</span>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-3 py-2 text-xs text-slate-300 sm:flex">
-            <ShieldCheck className="h-4 w-4 text-emerald-300" />
+          <div className="hidden items-center gap-2 rounded-md border border-slate-200 bg-white px-3 py-2 text-xs text-slate-600 shadow-sm sm:flex">
+            <ShieldCheck className="h-4 w-4 text-emerald-600" />
             <span>{t("openDemo")}</span>
           </div>
 
@@ -88,25 +88,25 @@ export function V2Shell({ children, locale }: V2ShellProps) {
             {["WE", "AM", "NO"].map((name, index) => (
               <motion.span
                 animate={{ y: [0, -2, 0] }}
-                className="grid h-8 w-8 place-items-center rounded-full border border-white/20 bg-slate-900 text-[10px] font-semibold text-white"
+                className="grid h-8 w-8 place-items-center rounded-full border border-slate-300 bg-white text-[10px] font-semibold text-slate-700 shadow-sm"
                 key={name}
                 transition={{ delay: index * 0.2, duration: 2, repeat: Infinity }}
               >
                 {name}
               </motion.span>
             ))}
-            <span className="grid h-8 w-8 place-items-center rounded-full border border-cyan-300/30 bg-cyan-300/10">
-              <Users className="h-4 w-4 text-cyan-100" />
+            <span className="grid h-8 w-8 place-items-center rounded-full border border-cyan-200 bg-cyan-50 shadow-sm">
+              <Users className="h-4 w-4 text-cyan-700" />
             </span>
           </div>
 
           <Button
-            className="h-9 border-white/10 bg-white/5 text-slate-200 hover:bg-white/10"
+            className="h-9 border-slate-200 bg-white text-slate-700 shadow-sm hover:bg-slate-50"
             onClick={() => setPaletteOpen(true)}
             size="sm"
             variant="outline"
           >
-            <Radio className="me-2 h-4 w-4 text-cyan-200" />
+            <Radio className="me-2 h-4 w-4 text-cyan-700" />
             {t("command")}
           </Button>
         </header>

@@ -73,18 +73,18 @@ export function SmartEstimateMvpPage({ locale }: SmartEstimateMvpPageProps) {
   return (
     <div className="mx-auto grid max-w-[1700px] gap-3 xl:grid-cols-[minmax(0,1fr)_460px]">
       <section className="space-y-3">
-        <div className="rounded-md border border-white/10 bg-black/35 p-5">
-          <Badge className="border-cyan-300/30 bg-cyan-300/10 text-cyan-100 hover:bg-cyan-300/10">
+        <div className="rounded-md border border-slate-200 bg-white/90 p-5 shadow-sm">
+          <Badge className="border-cyan-200 bg-cyan-50 text-cyan-700 hover:bg-cyan-50">
             {t("badge")}
           </Badge>
-          <h1 className="mt-4 text-3xl font-semibold text-white">{t("title")}</h1>
-          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400">{t("subtitle")}</p>
+          <h1 className="mt-4 text-3xl font-semibold text-slate-950">{t("title")}</h1>
+          <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-600">{t("subtitle")}</p>
         </div>
 
         <div
           className={cn(
             "relative grid min-h-[300px] place-items-center overflow-hidden rounded-md border border-dashed p-8 text-center transition",
-            dragging ? "border-cyan-300 bg-cyan-300/10" : "border-cyan-300/25 bg-[#07111d]/80",
+            dragging ? "border-cyan-500 bg-cyan-50" : "border-cyan-200 bg-white/90 shadow-sm",
           )}
           onDragLeave={() => setDragging(false)}
           onDragOver={(event) => {
@@ -104,16 +104,16 @@ export function SmartEstimateMvpPage({ locale }: SmartEstimateMvpPageProps) {
             type="file"
           />
           <div className="relative z-10 max-w-xl">
-            <div className="mx-auto grid h-20 w-20 place-items-center rounded-md border border-cyan-300/40 bg-cyan-300/10 text-cyan-100">
+            <div className="mx-auto grid h-20 w-20 place-items-center rounded-md border border-cyan-200 bg-cyan-50 text-cyan-700">
               <FileUp className="h-9 w-9" />
             </div>
-            <h2 className="mt-5 text-2xl font-semibold text-white">{t("dropTitle")}</h2>
-            <p className="mt-3 text-sm leading-6 text-slate-400">{t("dropSubtitle")}</p>
+            <h2 className="mt-5 text-2xl font-semibold text-slate-950">{t("dropTitle")}</h2>
+            <p className="mt-3 text-sm leading-6 text-slate-600">{t("dropSubtitle")}</p>
             <div className="mt-5 flex flex-wrap justify-center gap-2">
-              <Button className="bg-cyan-300 text-black hover:bg-cyan-200" onClick={() => inputRef.current?.click()}>
+              <Button className="bg-cyan-600 text-white hover:bg-cyan-500" onClick={() => inputRef.current?.click()}>
                 <FileUp className="me-2 h-4 w-4" /> {t("chooseFile")}
               </Button>
-              <Button className="border-white/10 bg-white/5 text-slate-200 hover:bg-white/10" onClick={() => void processFile({ name: "future-sample-tender.pdf", hash: "sample-tender-v2" })} variant="outline">
+              <Button className="border-slate-200 bg-white text-slate-700 hover:bg-slate-50" onClick={() => void processFile({ name: "future-sample-tender.pdf", hash: "sample-tender-v2" })} variant="outline">
                 <ScanLine className="me-2 h-4 w-4" /> {t("sample")}
               </Button>
             </div>
@@ -121,24 +121,24 @@ export function SmartEstimateMvpPage({ locale }: SmartEstimateMvpPageProps) {
         </div>
 
         {readyDraft ? (
-          <section className="rounded-md border border-white/10 bg-black/35 p-4">
+          <section className="rounded-md border border-slate-200 bg-white/90 p-4 shadow-sm">
             <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h2 className="text-lg font-semibold text-white">{t("review")}</h2>
+                <h2 className="text-lg font-semibold text-slate-950">{t("review")}</h2>
                 <p className="mt-1 text-xs text-slate-500" dir="ltr">{readyDraft.fileName}</p>
               </div>
-              <Button className="bg-emerald-300 text-black hover:bg-emerald-200" onClick={commitDraft}>
+              <Button className="bg-emerald-600 text-white hover:bg-emerald-500" onClick={commitDraft}>
                 <CheckCircle2 className="me-2 h-4 w-4" /> {t("commit")}
               </Button>
             </div>
-            <div className="overflow-hidden rounded-md border border-white/10">
+            <div className="overflow-hidden rounded-md border border-slate-200">
               {extractedBoqRows.map((row) => (
-                <div className="grid grid-cols-[90px_1fr_80px_90px_100px] items-center border-t border-white/10 px-3 py-3 text-sm text-slate-200 first:border-t-0" key={row.item}>
+                <div className="grid grid-cols-[90px_1fr_80px_90px_100px] items-center border-t border-slate-200 px-3 py-3 text-sm text-slate-700 first:border-t-0" key={row.item}>
                   <span dir="ltr">{row.item}</span>
                   <span>{locale === "ar" ? row.ar : row.en}</span>
                   <span>{row.unit}</span>
                   <span dir="ltr">{row.qty.toLocaleString()}</span>
-                  <span className="text-cyan-100">{row.confidence}%</span>
+                  <span className="text-cyan-700">{row.confidence}%</span>
                 </div>
               ))}
             </div>
@@ -147,10 +147,10 @@ export function SmartEstimateMvpPage({ locale }: SmartEstimateMvpPageProps) {
       </section>
 
       <aside className="space-y-3">
-        <section className="rounded-md border border-white/10 bg-black/35 p-4">
+        <section className="rounded-md border border-slate-200 bg-white/90 p-4 shadow-sm">
           <div className="mb-4 flex items-center gap-3">
-            <Sparkles className="h-5 w-5 text-cyan-200" />
-            <h2 className="text-lg font-semibold text-white">{t("pipeline")}</h2>
+            <Sparkles className="h-5 w-5 text-cyan-700" />
+            <h2 className="text-lg font-semibold text-slate-950">{t("pipeline")}</h2>
           </div>
           <div className="space-y-3">
             {pipelineSteps.map((step, index) => {
@@ -158,13 +158,13 @@ export function SmartEstimateMvpPage({ locale }: SmartEstimateMvpPageProps) {
               const active = running && index === completedSteps;
               return (
                 <div className="flex items-center gap-3" key={step.en}>
-                  <div className={cn("grid h-9 w-9 place-items-center rounded-full border", complete ? "border-emerald-300/40 bg-emerald-300/15 text-emerald-100" : active ? "border-cyan-300/50 bg-cyan-300/15 text-cyan-100" : "border-white/10 text-slate-600")}>
+                  <div className={cn("grid h-9 w-9 place-items-center rounded-full border", complete ? "border-emerald-200 bg-emerald-50 text-emerald-700" : active ? "border-cyan-300 bg-cyan-50 text-cyan-700" : "border-slate-200 text-slate-400")}>
                     {complete ? <CheckCircle2 className="h-4 w-4" /> : <Clock3 className="h-4 w-4" />}
                   </div>
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm text-white">{locale === "ar" ? step.ar : step.en}</p>
-                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-white/10">
-                      <div className={cn("h-full rounded-full bg-cyan-300 transition-all", complete ? "w-full" : active ? "w-2/3" : "w-0")} />
+                    <p className="text-sm text-slate-800">{locale === "ar" ? step.ar : step.en}</p>
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-slate-200">
+                      <div className={cn("h-full rounded-full bg-cyan-500 transition-all", complete ? "w-full" : active ? "w-2/3" : "w-0")} />
                     </div>
                   </div>
                 </div>
@@ -173,10 +173,10 @@ export function SmartEstimateMvpPage({ locale }: SmartEstimateMvpPageProps) {
           </div>
         </section>
 
-        <section className="rounded-md border border-amber-300/20 bg-amber-300/10 p-4">
+        <section className="rounded-md border border-amber-200 bg-amber-50 p-4 shadow-sm">
           <div className="flex items-center gap-3">
-            <FileJson className="h-5 w-5 text-amber-200" />
-            <h2 className="text-lg font-semibold text-white">{t("costTitle")}</h2>
+            <FileJson className="h-5 w-5 text-amber-700" />
+            <h2 className="text-lg font-semibold text-slate-950">{t("costTitle")}</h2>
           </div>
           <div className="mt-4 grid grid-cols-2 gap-2">
             <Metric label={t("latency")} value={running ? "running" : "1.4s"} />
@@ -184,7 +184,7 @@ export function SmartEstimateMvpPage({ locale }: SmartEstimateMvpPageProps) {
             <Metric label={t("confidence")} value={readyDraft ? `${readyDraft.confidence}%` : "--"} />
             <Metric label={t("drafts")} value={String(state.estimateDrafts.length)} />
           </div>
-          <p className="mt-4 text-sm leading-6 text-amber-50/80">{t("costNote")}</p>
+          <p className="mt-4 text-sm leading-6 text-amber-800">{t("costNote")}</p>
         </section>
       </aside>
     </div>
@@ -193,12 +193,12 @@ export function SmartEstimateMvpPage({ locale }: SmartEstimateMvpPageProps) {
 
 function Metric({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-md border border-white/10 bg-white/[0.04] p-3">
+    <div className="rounded-md border border-amber-200 bg-white p-3">
       <div className="flex items-center gap-2 text-xs text-slate-500">
-        <Timer className="h-4 w-4 text-cyan-200" />
+        <Timer className="h-4 w-4 text-cyan-700" />
         <span>{label}</span>
       </div>
-      <p className="mt-2 text-lg font-semibold text-white" dir="ltr">{value}</p>
+      <p className="mt-2 text-lg font-semibold text-slate-950" dir="ltr">{value}</p>
     </div>
   );
 }

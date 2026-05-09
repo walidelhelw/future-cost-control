@@ -125,7 +125,7 @@ export function FutureAssistant({ locale, onOpenChange, open }: FutureAssistantP
     <>
       <Button
         className={cn(
-          "fixed end-5 z-[90] h-14 w-14 rounded-full border border-cyan-200/50 bg-cyan-300 text-black shadow-[0_0_44px_rgba(0,212,212,0.42)] hover:bg-cyan-200",
+          "fixed end-5 z-[90] h-14 w-14 rounded-full border border-cyan-500 bg-cyan-600 text-white shadow-[0_18px_44px_rgba(14,165,233,0.3)] hover:bg-cyan-500",
           "bottom-20 lg:bottom-5"
         )}
         onClick={() => onOpenChange(true)}
@@ -138,23 +138,23 @@ export function FutureAssistant({ locale, onOpenChange, open }: FutureAssistantP
         {open ? (
           <motion.section
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            className="fixed bottom-24 end-4 z-[110] flex h-[min(680px,78vh)] w-[min(440px,calc(100vw-2rem))] flex-col overflow-hidden rounded-md border border-cyan-300/20 bg-[#071018]/95 text-slate-100 shadow-[0_24px_90px_rgba(0,0,0,0.62)] backdrop-blur-2xl lg:bottom-24"
+            className="fixed bottom-24 end-4 z-[110] flex h-[min(680px,78vh)] w-[min(440px,calc(100vw-2rem))] flex-col overflow-hidden rounded-md border border-cyan-200 bg-white/95 text-slate-950 shadow-[0_24px_90px_rgba(15,23,42,0.24)] backdrop-blur-2xl lg:bottom-24"
             dir={locale === "ar" ? "rtl" : "ltr"}
             exit={{ opacity: 0, y: 20, scale: 0.98 }}
             initial={{ opacity: 0, y: 20, scale: 0.98 }}
           >
-            <header className="flex items-center gap-3 border-b border-white/10 p-4">
-              <div className="grid h-10 w-10 place-items-center rounded-md bg-cyan-300 text-black">
+            <header className="flex items-center gap-3 border-b border-slate-200 p-4">
+              <div className="grid h-10 w-10 place-items-center rounded-md bg-cyan-600 text-white">
                 <Sparkles className="h-5 w-5" />
               </div>
               <div className="min-w-0 flex-1">
-                <h2 className="text-sm font-semibold text-white">Future</h2>
+                <h2 className="text-sm font-semibold text-slate-950">Future</h2>
                 <p className="text-xs text-slate-400">
                   {locale === "ar" ? "مساعد تنفيذي ثنائي اللغة" : "Bilingual executive assistant"}
                 </p>
               </div>
               <Button
-                className="h-8 w-8 border-white/10 bg-white/5 text-slate-300 hover:bg-white/10"
+                className="h-8 w-8 border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
                 onClick={() => onOpenChange(false)}
                 size="icon"
                 variant="outline"
@@ -169,8 +169,8 @@ export function FutureAssistant({ locale, onOpenChange, open }: FutureAssistantP
                   className={cn(
                     "max-w-[88%] rounded-md border px-3 py-2 text-sm leading-6",
                     message.role === "assistant"
-                      ? "border-cyan-300/20 bg-cyan-300/10 text-cyan-50"
-                      : "ms-auto border-white/10 bg-white/10 text-white"
+                      ? "border-cyan-200 bg-cyan-50 text-slate-800"
+                      : "ms-auto border-cyan-500 bg-cyan-600 text-white"
                   )}
                   key={message.id}
                 >
@@ -179,11 +179,11 @@ export function FutureAssistant({ locale, onOpenChange, open }: FutureAssistantP
               ))}
             </div>
 
-            <div className="border-t border-white/10 p-3">
+            <div className="border-t border-slate-200 p-3">
               <div className="mb-3 flex flex-wrap gap-2">
                 {suggestions[locale].map((suggestion) => (
                   <button
-                    className="rounded border border-white/10 px-2 py-1 text-xs text-slate-300 transition hover:border-cyan-300/40 hover:text-cyan-100"
+                    className="rounded border border-slate-200 bg-white px-2 py-1 text-xs text-slate-600 transition hover:border-cyan-300 hover:text-cyan-800"
                     key={suggestion}
                     onClick={() => submitQuestion(undefined, suggestion)}
                     type="button"
@@ -194,21 +194,21 @@ export function FutureAssistant({ locale, onOpenChange, open }: FutureAssistantP
               </div>
               <form className="flex items-center gap-2" onSubmit={submitQuestion}>
                 <button
-                  className="grid h-10 w-10 place-items-center rounded border border-white/10 text-slate-400 hover:text-cyan-100"
+                  className="grid h-10 w-10 place-items-center rounded border border-slate-200 text-slate-500 hover:border-cyan-300 hover:text-cyan-800"
                   onClick={startVoiceInput}
                   type="button"
                 >
                   <Mic className="h-4 w-4" />
                 </button>
                 <input
-                  className="h-10 min-w-0 flex-1 rounded border border-white/10 bg-white/[0.04] px-3 text-sm text-white outline-none placeholder:text-slate-500 focus:border-cyan-300/50"
+                  className="h-10 min-w-0 flex-1 rounded border border-slate-200 bg-white px-3 text-sm text-slate-950 outline-none placeholder:text-slate-500 focus:border-cyan-400"
                   dir={locale === "ar" ? "rtl" : "ltr"}
                   onChange={(event) => setInput(event.target.value)}
                   placeholder={locale === "ar" ? "اسأل عن أي مشروع..." : "Ask about any project..."}
                   value={input}
                 />
                 <Button
-                  className="h-10 bg-cyan-300 text-black hover:bg-cyan-200"
+                  className="h-10 bg-cyan-600 text-white hover:bg-cyan-500"
                   disabled={loading}
                   size="icon"
                 >

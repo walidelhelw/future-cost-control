@@ -20,14 +20,14 @@ export default function V2Error({ error, reset }: V2ErrorProps) {
 
   return (
     <div className="grid min-h-[70vh] place-items-center p-6">
-      <div className="max-w-xl rounded-md border border-amber-300/20 bg-amber-300/10 p-6 text-center">
-        <AlertTriangle className="mx-auto h-10 w-10 text-amber-200" />
-        <h1 className="mt-4 text-2xl font-semibold text-white">Future V2 recovered</h1>
-        <p className="mt-3 text-sm leading-6 text-amber-50/80">
+      <div className="max-w-xl rounded-md border border-amber-200 bg-amber-50 p-6 text-center shadow-sm">
+        <AlertTriangle className="mx-auto h-10 w-10 text-amber-700" />
+        <h1 className="mt-4 text-2xl font-semibold text-slate-950">Future V2 recovered</h1>
+        <p className="mt-3 text-sm leading-6 text-amber-800">
           The V2 error boundary caught this route failure and exposed a telemetry
           hook for Sentry or audit logging.
         </p>
-        <Button className="mt-5 bg-cyan-300 text-black hover:bg-cyan-200" onClick={reset}>
+        <Button className="mt-5 bg-cyan-600 text-white hover:bg-cyan-500" onClick={reset}>
           Retry route
         </Button>
       </div>

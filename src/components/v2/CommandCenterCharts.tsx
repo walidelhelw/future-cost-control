@@ -26,10 +26,10 @@ export function CommandCenterCharts({ locale }: CommandCenterChartsProps) {
       title: locale === "ar" ? "اتجاه فرق التكلفة" : "Variance trend",
       node: (
         <LineChart data={varianceData}>
-          <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
+          <CartesianGrid stroke="rgba(15,23,42,0.08)" vertical={false} />
           <XAxis dataKey="month" stroke="#64748b" tickLine={false} />
           <YAxis stroke="#64748b" tickLine={false} />
-          <Tooltip contentStyle={{ background: "#070b12", border: "1px solid rgba(255,255,255,.12)" }} />
+          <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #cbd5e1", color: "#0f172a" }} />
           <Line dataKey="variance" stroke="#00d4d4" strokeWidth={2} type="monotone" />
           <Line dataKey="forecast" stroke="#f59e0b" strokeDasharray="4 4" strokeWidth={2} type="monotone" />
         </LineChart>
@@ -39,10 +39,10 @@ export function CommandCenterCharts({ locale }: CommandCenterChartsProps) {
       title: locale === "ar" ? "احتراق التدفق النقدي" : "Cashflow burn",
       node: (
         <AreaChart data={cashflowData}>
-          <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
+          <CartesianGrid stroke="rgba(15,23,42,0.08)" vertical={false} />
           <XAxis dataKey="month" stroke="#64748b" tickLine={false} />
           <YAxis stroke="#64748b" tickLine={false} />
-          <Tooltip contentStyle={{ background: "#070b12", border: "1px solid rgba(255,255,255,.12)" }} />
+          <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #cbd5e1", color: "#0f172a" }} />
           <Area dataKey="planned" fill="#00d4d433" stroke="#00d4d4" type="monotone" />
           <Area dataKey="actual" fill="#f59e0b33" stroke="#f59e0b" type="monotone" />
         </AreaChart>
@@ -52,10 +52,10 @@ export function CommandCenterCharts({ locale }: CommandCenterChartsProps) {
       title: locale === "ar" ? "تكلفة الذكاء الاصطناعي" : "AI cost burn",
       node: (
         <BarChart data={aiSpendData}>
-          <CartesianGrid stroke="rgba(255,255,255,0.06)" vertical={false} />
+          <CartesianGrid stroke="rgba(15,23,42,0.08)" vertical={false} />
           <XAxis dataKey="day" stroke="#64748b" tickLine={false} />
           <YAxis stroke="#64748b" tickLine={false} />
-          <Tooltip contentStyle={{ background: "#070b12", border: "1px solid rgba(255,255,255,.12)" }} />
+          <Tooltip contentStyle={{ background: "#ffffff", border: "1px solid #cbd5e1", color: "#0f172a" }} />
           <Bar dataKey="spend" fill="#22d3ee" radius={[4, 4, 0, 0]} />
         </BarChart>
       ),
@@ -65,10 +65,10 @@ export function CommandCenterCharts({ locale }: CommandCenterChartsProps) {
   return (
     <section className="grid gap-3 xl:grid-cols-3">
       {charts.map((chart) => (
-        <div className="rounded-md border border-white/10 bg-black/35 p-4" key={chart.title}>
+        <div className="rounded-md border border-slate-200 bg-white/90 p-4 shadow-sm" key={chart.title}>
           <div className="mb-3 flex items-center justify-between gap-3">
-            <h3 className="text-sm font-semibold text-white">{chart.title}</h3>
-            <span className="rounded border border-white/10 px-2 py-1 text-[10px] text-slate-500">
+            <h3 className="text-sm font-semibold text-slate-950">{chart.title}</h3>
+            <span className="rounded border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] text-slate-500">
               {locale === "ar" ? "مباشر" : "LIVE"}
             </span>
           </div>

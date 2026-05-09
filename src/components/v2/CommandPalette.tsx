@@ -44,16 +44,16 @@ export function CommandPalette({
 
   return (
     <Command.Dialog
-      className="fixed start-1/2 top-24 z-[120] w-[min(92vw,720px)] -translate-x-1/2 overflow-hidden rounded-md border border-cyan-300/20 bg-[#070b12]/95 text-slate-100 shadow-[0_24px_80px_rgba(0,0,0,0.55)] backdrop-blur-2xl"
+      className="fixed start-1/2 top-24 z-[120] w-[min(92vw,720px)] -translate-x-1/2 overflow-hidden rounded-md border border-cyan-200 bg-white/95 text-slate-950 shadow-[0_24px_80px_rgba(15,23,42,0.2)] backdrop-blur-2xl"
       label="Future command palette"
       onOpenChange={onOpenChange}
       open={open}
     >
-      <div className="flex items-center gap-3 border-b border-white/10 px-4 py-3">
-        <Search className="h-4 w-4 text-cyan-200" />
+      <div className="flex items-center gap-3 border-b border-slate-200 px-4 py-3">
+        <Search className="h-4 w-4 text-cyan-700" />
         <Command.Input
           autoFocus
-          className="h-9 flex-1 bg-transparent text-sm text-white outline-none placeholder:text-slate-500"
+          className="h-9 flex-1 bg-transparent text-sm text-slate-950 outline-none placeholder:text-slate-500"
           placeholder={
             locale === "ar"
               ? "ابحث أو اكتب أمرا تنفيذيا..."
@@ -70,15 +70,15 @@ export function CommandPalette({
           heading={locale === "ar" ? "الأوامر" : "Commands"}
         >
           <Command.Item
-            className="flex cursor-pointer items-center gap-3 rounded px-3 py-3 text-sm text-slate-200 data-[selected=true]:bg-cyan-300/10"
+            className="flex cursor-pointer items-center gap-3 rounded px-3 py-3 text-sm text-slate-700 data-[selected=true]:bg-cyan-50 data-[selected=true]:text-cyan-950"
             onSelect={() => {
               onAskFuture();
               onOpenChange(false);
             }}
           >
-            <Sparkles className="h-4 w-4 text-cyan-200" />
+            <Sparkles className="h-4 w-4 text-cyan-700" />
             <span>{locale === "ar" ? "افتح مساعد Future" : "Open Future assistant"}</span>
-            <kbd className="ms-auto rounded border border-white/10 px-2 py-1 text-[10px] text-slate-500">
+            <kbd className="ms-auto rounded border border-slate-200 bg-slate-50 px-2 py-1 text-[10px] text-slate-500">
               /
             </kbd>
           </Command.Item>
@@ -92,13 +92,13 @@ export function CommandPalette({
             return (
               <Command.Item
                 key={item.key}
-                className="flex cursor-pointer items-center gap-3 rounded px-3 py-3 text-sm text-slate-200 data-[selected=true]:bg-cyan-300/10"
+                className="flex cursor-pointer items-center gap-3 rounded px-3 py-3 text-sm text-slate-700 data-[selected=true]:bg-cyan-50 data-[selected=true]:text-cyan-950"
                 onSelect={() => {
                   router.push(`/${locale}${item.href}`);
                   onOpenChange(false);
                 }}
               >
-                <Icon className="h-4 w-4 text-cyan-200" />
+                <Icon className="h-4 w-4 text-cyan-700" />
                 <span>{pickText(item.label, locale)}</span>
                 <span className="ms-auto text-xs text-slate-500">
                   {pickText(item.metric, locale)}
