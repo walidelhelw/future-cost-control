@@ -1,4 +1,4 @@
-import { ModuleStubPage } from "@/components/v2/ModuleStubPage";
+import { OperationalModulePage } from "@/components/v2/OperationalModulePage";
 
 export const dynamic = "force-dynamic";
 import { normalizeLocale } from "@/components/v2/localize";
@@ -10,5 +10,5 @@ type ChangePageProps = {
 export default async function ChangePage({ params }: ChangePageProps) {
   const { locale } = await params;
 
-  return <ModuleStubPage locale={normalizeLocale(locale)} pageKey="change" />;
+  return <OperationalModulePage locale={normalizeLocale(locale)} pageKey="change" />;
 }

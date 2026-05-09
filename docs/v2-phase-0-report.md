@@ -4,7 +4,7 @@
 
 - Isolated `/[locale]/v2` surface that opens directly to the V2 CEO demo shell.
 - CEO-edition V2 shell: dark command layer, RTL-aware navigation, command palette, floating Future assistant, responsive bottom nav.
-- Command Center route, Smart Estimate route, and polished operational route targets for Cost Spine, Field Mode, Flow, Change Orders, RFQ, Ask Future, and Admin.
+- Functional MVP workflows for Smart Estimate, Cost Spine, Field Mode, Future Flow approvals, Change Radar, RFQ award, Ask Future prompt board, and Admin audit reset. The old page-only stubs were removed.
 - V2 server foundation in `src/lib/v2`: Supabase SSR clients, auth/RBAC helpers, DAL modules, typed assistant tools, Gemini wrapper, AI cost logging.
 - `/api/v2/assistant` streaming endpoint with typed tool routing and no raw SQL surface.
 - Supabase migration `003_v2_foundation.sql` for identity, RLS, audit, AI logs, embeddings, reference data, cost spine, and workflow tables.
@@ -14,7 +14,6 @@
 ## URLs And Screenshots
 
 - Local URL: `http://localhost:3007/ar/v2`
-- English URL: `http://localhost:3007/en/v2`
 - Desktop screenshot: `/tmp/future-v2-ar-final.png`
 - Mobile screenshot: `/tmp/future-v2-estimate-mobile-final.png`
 
@@ -35,7 +34,7 @@ No live Gemini calls were made during verification. The assistant smoke route us
 - `npm run typecheck` passed.
 - `npm run lint` passed.
 - `npm run build` passed.
-- `V2_SMOKE_BASE_URL=http://localhost:3007 npm run smoke:v2` passed for `/ar/v2`, `/en/v2`, and `/api/v2/assistant`.
+- `V2_SMOKE_BASE_URL=http://localhost:3007 npm run smoke:v2` passed for `/ar/v2`, `/ar/v2/estimate`, `/ar/v2/cost`, `/ar/v2/field`, `/ar/v2/flow`, `/ar/v2/change`, `/ar/v2/rfq`, `/ar/v2/ask`, `/ar/v2/admin`, and `/api/v2/assistant`.
 - Playwright screenshots captured desktop and mobile V2 routes.
 - Static scan found no `USING (true)` or direct OpenAI/Anthropic/Twilio/WhatsApp integration in V2 code.
 
@@ -44,3 +43,4 @@ No live Gemini calls were made during verification. The assistant smoke route us
 - Local Supabase SQL lint could not run because Docker is not running, so the migration was not applied to a local Postgres instance in this session.
 - Remote `supabase db push --yes` was attempted, but Supabase rejected the CLI login-role setup without `SUPABASE_DB_PASSWORD`; the migration is committed and ready to apply once that password is available.
 - V2 route rendering is open for the CEO demo. Data-mutating and assistant API routes still enforce the V2 Supabase/RBAC checks.
+- MVP workflow state is browser-persisted for the live demo so routes work even before the remote Supabase migration is applied.

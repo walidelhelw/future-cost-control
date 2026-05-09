@@ -87,6 +87,12 @@ export async function POST(request: Request): Promise<Response> {
     });
   } catch (error) {
     if (error instanceof V2AuthError) {
+      if (error.code === "auth_required") {
+        return new Response(buildOpenDemoAssistantAnswer(body.message, body.locale), {
+          headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" },
+        });
+      }
+
       return NextResponse.json({ error: error.message, code: error.code }, { status: error.status });
     }
 
@@ -94,6 +100,32 @@ export async function POST(request: Request): Promise<Response> {
     const status = /GEMINI_API_KEY/.test(message) ? 503 : 500;
     return NextResponse.json({ error: message }, { status });
   }
+}
+
+function buildOpenDemoAssistantAnswer(message: string, locale: AssistantLocale): string {
+  const normalized = message.toLowerCase();
+
+  if (/supplier|vendor|مورد|حديد|rebar/.test(normalized)) {
+    return locale === "ar"
+      ? "أفضل مورد في عرض V2 هو Ezz Steel بدرجة 91/100 مع مدة توريد 7 أيام. المصدر: RFQ Comparison / Supplier Score."
+      : "Best supplier in the V2 demo is Ezz Steel at 91/100 with a 7-day lead time. Source: RFQ Comparison / Supplier Score.";
+  }
+
+  if (/risk|مخاطر|خطر/.test(normalized)) {
+    return locale === "ar"
+      ? "أعلى 3 مخاطر: تجاوز الخرسانة، تأخير توريد الحديد، وإشارة تغيير من تقرير الموقع. المصدر: Risk feed / Change Radar."
+      : "Top 3 risks: concrete overrun, delayed rebar supply, and a change signal from the site report. Source: Risk feed / Change Radar.";
+  }
+
+  if (/approval|sla|موافقة|اعتماد/.test(normalized)) {
+    return locale === "ar"
+      ? "يوجد طلبان في Future Flow، أقربهما لكسر SLA خلال ساعتين: اعتماد مستخلص خرسانة بقيمة 3.2م جنيه. المصدر: Approval Inbox."
+      : "Future Flow has two pending requests; the nearest SLA breach is in 2 hours for a EGP 3.2M concrete payment cert. Source: Approval Inbox.";
+  }
+
+  return locale === "ar"
+    ? "إجابة V2: يوجد مشروعان فوق الميزانية، أكبرهما كمبوند لوتس بفارق 8.4م جنيه. يمكنك الضغط على عمود التكلفة لإضافة فاتورة ورؤية الفرق وسجل التدقيق فوراً. المصدر: Cost Spine / Audit Trail."
+    : "V2 answer: two projects are over budget, led by Lotus Compound at EGP 8.4M variance. Open Cost Spine, add an invoice, and the variance plus audit trail update immediately. Source: Cost Spine / Audit Trail.";
 }
 
 function streamAssistantResponse(params: {

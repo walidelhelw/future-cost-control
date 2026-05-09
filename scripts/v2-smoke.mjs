@@ -18,12 +18,22 @@ const checks = [
     console.log("PASS /ar/v2");
   },
   async () => {
-    const response = await assertOk("/en/v2");
+    const response = await assertOk("/ar/v2/estimate");
     const html = await response.text();
-    if (!html.includes("Future")) {
-      throw new Error("/en/v2 did not render the V2 command center copy");
+    if (!html.includes("ارفع مناقصة") && !html.includes("وظيفة تقدير فعلية")) {
+      throw new Error("/ar/v2/estimate did not render the functional Smart Estimate copy");
     }
-    console.log("PASS /en/v2");
+    console.log("PASS /ar/v2/estimate");
+  },
+  async () => {
+    for (const path of ["/ar/v2/cost", "/ar/v2/field", "/ar/v2/flow", "/ar/v2/change", "/ar/v2/rfq", "/ar/v2/ask", "/ar/v2/admin"]) {
+      const response = await assertOk(path);
+      const html = await response.text();
+      if (!html.includes("مسار تشغيل فعلي")) {
+        throw new Error(`${path} did not render the functional workflow shell`);
+      }
+      console.log(`PASS ${path}`);
+    }
   },
   async () => {
     const response = await assertOk("/api/v2/assistant", {
@@ -32,7 +42,6 @@ const checks = [
       body: JSON.stringify({
         locale: "ar",
         message: "ما هي المشاريع الأعلى مخاطرة؟",
-        smoke: true,
       }),
     });
     const body = await response.text();

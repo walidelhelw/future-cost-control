@@ -1,4 +1,4 @@
-import { ModuleStubPage } from "@/components/v2/ModuleStubPage";
+import { OperationalModulePage } from "@/components/v2/OperationalModulePage";
 
 export const dynamic = "force-dynamic";
 import { normalizeLocale } from "@/components/v2/localize";
@@ -10,5 +10,5 @@ type FieldPageProps = {
 export default async function FieldPage({ params }: FieldPageProps) {
   const { locale } = await params;
 
-  return <ModuleStubPage locale={normalizeLocale(locale)} pageKey="field" />;
+  return <OperationalModulePage locale={normalizeLocale(locale)} pageKey="field" />;
 }

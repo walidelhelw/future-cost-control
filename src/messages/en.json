@@ -354,6 +354,89 @@
       "openDemo": "Open demo",
       "command": "Command"
     },
+    "estimateMvp": {
+      "badge": "Functional estimate job",
+      "title": "Upload a tender and save a draft estimate",
+      "subtitle": "This is not a static mock: the file is fingerprinted, duplicate jobs are blocked, processing steps run, and a reviewable draft can be saved.",
+      "dropTitle": "Drop PDF or drawing image here",
+      "dropSubtitle": "Choose a real file or run the fast sample file for the executive demo.",
+      "chooseFile": "Choose file",
+      "sample": "Run sample",
+      "review": "Extracted item review",
+      "commit": "Save draft estimate",
+      "pipeline": "Job pipeline",
+      "costTitle": "Cost transparency",
+      "latency": "Latency",
+      "cost": "Cost",
+      "confidence": "Confidence",
+      "drafts": "Drafts",
+      "costNote": "Every job exposes cost and commit status, and the same file hash opens the same draft.",
+      "idempotent": "This file was already processed, so the same draft was reopened.",
+      "committed": "Draft estimate saved in the V2 experience."
+    },
+    "mvp": {
+      "liveWorkflow": "Functional workflow",
+      "budget": "Budget",
+      "committed": "Committed",
+      "actual": "Actual",
+      "variance": "Variance",
+      "addInvoice": "Add invoice",
+      "fieldCapture": "Fast site report",
+      "progress": "Progress",
+      "crew": "Crew count",
+      "submitReport": "Save report",
+      "reports": "Site reports",
+      "workers": "workers",
+      "changeSignal": "Change signal",
+      "approvalInbox": "Approval inbox",
+      "approve": "Approve",
+      "reject": "Reject",
+      "approved": "Approved",
+      "rejected": "Rejected",
+      "changeNotices": "Change notices",
+      "days": "days",
+      "routeApproval": "Route approval",
+      "routed": "Routed",
+      "quoteComparison": "Quote comparison",
+      "award": "Award",
+      "awarded": "Awarded",
+      "assistantWorkbench": "Executive prompts",
+      "useFloatingFuture": "Use the floating Future button for live answers",
+      "roles": "Roles",
+      "auditEvents": "Audit events",
+      "resetDemo": "Reset demo data",
+      "auditTrail": "Audit trail",
+      "pages": {
+        "cost": {
+          "title": "Actual-Cost Spine",
+          "subtitle": "Adding invoices changes actuals and variance immediately, with an audit event for every move."
+        },
+        "field": {
+          "title": "Field Mode",
+          "subtitle": "A voice or text site report becomes an event, and change signals automatically create a notice."
+        },
+        "flow": {
+          "title": "Future Flow",
+          "subtitle": "An executable approval inbox with approve, reject, SLA state, and audit trail."
+        },
+        "change": {
+          "title": "Change Order Radar",
+          "subtitle": "Change notices generated from site reports can be routed directly into approvals."
+        },
+        "rfq": {
+          "title": "RFQ Comparison",
+          "subtitle": "Compare suppliers by price, lead time, and score, then convert the winning quote to a commitment."
+        },
+        "ask": {
+          "title": "Ask Future",
+          "subtitle": "Executive prompt board connected to the floating assistant and cost, risk, and supplier sources."
+        },
+        "admin": {
+          "title": "V2 Admin",
+          "subtitle": "Monitor roles, audit activity, and reset the demo data when needed."
+        }
+      }
+    },
     "modules": {
       "command": "Command Center",
       "estimate": "Smart Estimate",

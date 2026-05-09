@@ -1,4 +1,4 @@
-import { ModuleStubPage } from "@/components/v2/ModuleStubPage";
+import { OperationalModulePage } from "@/components/v2/OperationalModulePage";
 
 export const dynamic = "force-dynamic";
 import { normalizeLocale } from "@/components/v2/localize";
@@ -10,5 +10,5 @@ type AskPageProps = {
 export default async function AskPage({ params }: AskPageProps) {
   const { locale } = await params;
 
-  return <ModuleStubPage locale={normalizeLocale(locale)} pageKey="ask" />;
+  return <OperationalModulePage locale={normalizeLocale(locale)} pageKey="ask" />;
 }

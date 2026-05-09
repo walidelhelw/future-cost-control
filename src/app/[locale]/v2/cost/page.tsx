@@ -1,4 +1,4 @@
-import { ModuleStubPage } from "@/components/v2/ModuleStubPage";
+import { OperationalModulePage } from "@/components/v2/OperationalModulePage";
 
 export const dynamic = "force-dynamic";
 import { normalizeLocale } from "@/components/v2/localize";
@@ -10,5 +10,5 @@ type CostPageProps = {
 export default async function CostPage({ params }: CostPageProps) {
   const { locale } = await params;
 
-  return <ModuleStubPage locale={normalizeLocale(locale)} pageKey="cost" />;
+  return <OperationalModulePage locale={normalizeLocale(locale)} pageKey="cost" />;
 }

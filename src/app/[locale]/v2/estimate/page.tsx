@@ -1,7 +1,7 @@
 import { normalizeLocale } from "@/components/v2/localize";
 
 export const dynamic = "force-dynamic";
-import { SmartEstimatePage } from "@/components/v2/SmartEstimatePage";
+import { SmartEstimateMvpPage } from "@/components/v2/SmartEstimateMvpPage";
 
 type EstimatePageProps = {
   params: Promise<{ locale: string }>;
@@ -10,5 +10,5 @@ type EstimatePageProps = {
 export default async function EstimatePage({ params }: EstimatePageProps) {
   const { locale } = await params;
 
-  return <SmartEstimatePage locale={normalizeLocale(locale)} />;
+  return <SmartEstimateMvpPage locale={normalizeLocale(locale)} />;
 }
