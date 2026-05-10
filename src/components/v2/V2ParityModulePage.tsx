@@ -123,7 +123,7 @@ const copy: Record<CopyKey, { ar: string; en: string }> = {
   fundingGap: { ar: "فجوة التمويل", en: "Funding gap" },
   breakEven: { ar: "نقطة التعادل", en: "Break-even" },
   discountRate: { ar: "معدل الخصم", en: "Discount rate" },
-  demoOnly: { ar: "مسار V2 كامل - بيانات محلية للتجربة فقط", en: "مسار V2 كامل - local demo data only" },
+  demoOnly: { ar: "مسار V2 كامل - بيانات محلية للتجربة فقط", en: "Full V2 path - local demo data only" },
 };
 
 const rateLabels: Record<RateKind, { ar: string; en: string }> = {

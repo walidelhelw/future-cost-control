@@ -1,27 +1,39 @@
-# V2 Phase 0/1 Report
+# V2 CEO Platform Report
 
 ## What Shipped
 
-- Isolated `/[locale]/v2` surface that opens directly to the V2 CEO demo shell.
-- CEO-edition V2 shell: dark command layer, RTL-aware navigation, command palette, floating Future assistant, responsive bottom nav.
-- Functional MVP workflows for Smart Estimate, Cost Spine, Field Mode, Future Flow approvals, Change Radar, RFQ award, Ask Future prompt board, and Admin audit reset. The old page-only stubs were removed.
-- V2 server foundation in `src/lib/v2`: Supabase SSR clients, auth/RBAC helpers, DAL modules, typed assistant tools, Gemini wrapper, AI cost logging.
-- `/api/v2/assistant` streaming endpoint with typed tool routing and no raw SQL surface.
-- Supabase migration `003_v2_foundation.sql` for identity, RLS, audit, AI logs, embeddings, reference data, cost spine, and workflow tables.
-- Static reference data seed generated from V1 data into `supabase/seed/v2_reference_data.sql` with 243 rows.
+- Isolated `/[locale]/v2` surface that opens directly to the V2 CEO demo shell without the V1 sidebar or header behind it.
+- Light-mode executive V2 shell with RTL-aware navigation, command palette, floating Future assistant, responsive bottom navigation, and dense dashboard cards.
+- Native V2 parity pages for Rates, Productivity, Projects, Estimates, Suppliers, BOQ Calculator, Risks, and Cashflow.
+- Functional V2 workflows for Smart Estimate, Actual-Cost Spine, Field Mode, Future Flow approvals, Change Order Radar, RFQ comparison/award, Ask Future, and Admin reset/audit views.
+- V2 server foundation in `src/lib/v2`: Supabase SSR clients, auth/RBAC helpers, DAL modules, typed assistant tools, Gemini wrapper, and AI cost logging.
+- `/api/v2/assistant` streaming endpoint with typed tool routing and open-demo fallback answers for suppliers, rates, projects, estimates/BOQ, risks, cashflow, approvals, RFQs, change orders, and variance. No raw SQL surface is exposed.
+- Supabase migration `003_v2_foundation.sql` for identity, RLS, audit, AI logs, embeddings, reference data, cost spine, reports, workflows, approvals, RFQs, quotes, and change orders.
+- Static reference seed generated from V1 data into `supabase/seed/v2_reference_data.sql` with 243 rows.
 - Security headers in `next.config.mjs` and Netlify `public/_headers`; Sentry init is safe when DSNs are missing.
 
-## URLs And Screenshots
+## Demo URLs
 
-- Local URL: `http://localhost:3007/ar/v2`
-- Desktop screenshot: `/tmp/future-v2-ar-final.png`
-- Mobile screenshot: `/tmp/future-v2-estimate-mobile-final.png`
+- Live CEO link: `https://future-cost-control.netlify.app/ar/v2`
+- English check: `https://future-cost-control.netlify.app/en/v2`
+- Local production check: `http://localhost:3017/ar/v2`
+
+## CEO Demo Path
+
+1. Open Command Center and show the light-mode executive dashboard.
+2. Open Smart Estimate and run the sample tender pipeline.
+3. Open Cost Spine and add an invoice to show variance and audit updates.
+4. Open Field Mode and submit a field report that creates a change signal.
+5. Open Change Radar and route the Arabic notice to Future Flow.
+6. Open Future Flow and approve/reject with a comment.
+7. Open RFQ Comparison and award a quote into a commitment.
+8. Ask Future about rates, suppliers, cashflow, approvals, RFQs, change orders, and variance.
 
 ## AI Cost
 
-No live Gemini calls were made during verification. The assistant smoke route used the no-data smoke response, so incurred AI cost is `$0.00`.
+Verification used open-demo assistant fallbacks and smoke requests, so no live Gemini calls were required.
 
-| Cost Area | Phase 0/1 Demo Usage | Estimated Monthly |
+| Cost Area | Demo Usage | Estimated Monthly |
 | --- | ---: | ---: |
 | Supabase Pro | Auth, DB, storage, realtime-ready | `$25` |
 | Gemini Flash/Pro | Assistant and Smart Estimate jobs | `$30-80` |
@@ -29,18 +41,17 @@ No live Gemini calls were made during verification. The assistant smoke route us
 | Netlify | Existing deploy target | `$0+` |
 | Total | Demo to early pilot | `$55-131/mo` |
 
-## Verification
+## Verification Scope
 
-- `npm run typecheck` passed.
-- `npm run lint` passed.
-- `npm run build` passed.
-- `V2_SMOKE_BASE_URL=http://localhost:3007 npm run smoke:v2` passed for `/ar/v2`, `/ar/v2/estimate`, `/ar/v2/cost`, `/ar/v2/field`, `/ar/v2/flow`, `/ar/v2/change`, `/ar/v2/rfq`, `/ar/v2/ask`, `/ar/v2/admin`, and `/api/v2/assistant`.
-- Playwright screenshots captured desktop and mobile V2 routes.
-- Static scan found no `USING (true)` or direct OpenAI/Anthropic/Twilio/WhatsApp integration in V2 code.
+- `npm run typecheck`
+- `npm run lint`
+- `npm run build`
+- `V2_SMOKE_BASE_URL=http://localhost:3017 npm run smoke:v2`
+- `V2_SMOKE_BASE_URL=https://future-cost-control.netlify.app npm run smoke:v2`
+- Browser QA on `/ar/v2` and `/en/v2/ask` for V2 shell isolation, localized prompts, and localhost console errors.
 
-## Notes
+## Remaining Production Notes
 
-- Local Supabase SQL lint could not run because Docker is not running, so the migration was not applied to a local Postgres instance in this session.
-- Remote `supabase db push --yes` was attempted, but Supabase rejected the CLI login-role setup without `SUPABASE_DB_PASSWORD`; the migration is committed and ready to apply once that password is available.
-- V2 route rendering is open for the CEO demo. Data-mutating and assistant API routes still enforce the V2 Supabase/RBAC checks.
-- MVP workflow state is browser-persisted for the live demo so routes work even before the remote Supabase migration is applied.
+- The public CEO demo uses seeded, non-sensitive demo fallback data when unauthenticated.
+- Authenticated data paths are implemented through V2 Supabase/RBAC/DAL routes, but the remote Supabase migration still needs to be applied with deployment credentials before real multi-user writes are enabled.
+- V2 is intentionally native; V1 remains available and untouched under the original routes.

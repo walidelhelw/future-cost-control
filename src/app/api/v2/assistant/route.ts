@@ -105,10 +105,40 @@ export async function POST(request: Request): Promise<Response> {
 function buildOpenDemoAssistantAnswer(message: string, locale: AssistantLocale): string {
   const normalized = message.toLowerCase();
 
+  if (/rfq|quote|quotation|عرض سعر|طلبات الأسعار/.test(normalized)) {
+    return locale === "ar"
+      ? "طلبات الأسعار في عرض V2 تقارن السعر ومدة التوريد ودرجة المورد. أفضل ترسية تجريبية حالياً: Ezz Steel بدرجة 91/100 مع أثر التزام مباشر على عمود التكلفة. المصدر: RFQ Comparison / Cost Spine."
+      : "The V2 RFQ view compares price, lead time, and supplier score. Current demo award: Ezz Steel at 91/100, converting directly into a Cost Spine commitment. Source: RFQ Comparison / Cost Spine.";
+  }
+
+  if (/rate|rates|unit price|price list|سعر|أسعار|معدل|معدلات/.test(normalized)) {
+    return locale === "ar"
+      ? "الأسعار في V2 تعرض معدل الحديد المرجعي عند 42,500 جنيه/طن مع ثقة 88%. يمكن فتح صفحة Rates لمقارنة السعر الحالي، الاتجاه، والمورد المرتبط قبل إدخاله في التقدير. المصدر: Demo Rates."
+      : "V2 Rates shows the demo rebar benchmark at EGP 42,500/ton with 88% confidence. Source: Demo Rates. Open Rates to compare current price, trend, and linked supplier before using it in an estimate.";
+  }
+
   if (/supplier|vendor|مورد|حديد|rebar/.test(normalized)) {
     return locale === "ar"
       ? "أفضل مورد في عرض V2 هو Ezz Steel بدرجة 91/100 مع مدة توريد 7 أيام. المصدر: RFQ Comparison / Supplier Score."
       : "Best supplier in the V2 demo is Ezz Steel at 91/100 with a 7-day lead time. Source: RFQ Comparison / Supplier Score.";
+  }
+
+  if (/cashflow|cash flow|npv|funding|liquidity|تدفق|نقد|سيولة|تمويل|فجوة/.test(normalized)) {
+    return locale === "ar"
+      ? "التدفق النقدي في V2 يوضح NPV موجب 14.2م جنيه، فجوة تمويل قصوى 6.1م جنيه في شهر يونيو، ونقطة تعادل في الشهر السابع. المصدر: Cashflow / Funding Gap."
+      : "V2 Cashflow shows a positive EGP 14.2M NPV, a peak EGP 6.1M funding gap in June, and breakeven in month 7. Source: Cashflow / Funding Gap.";
+  }
+
+  if (/project|portfolio|مشروع|مشاريع|محفظة/.test(normalized)) {
+    return locale === "ar"
+      ? "محفظة V2 تعرض 4 مشاريع تجريبية، منها مشروعان يحتاجان تدخل تكلفة. كمبوند لوتس هو الأعلى أثراً بفارق 8.4م جنيه. المصدر: Projects / Cost Spine."
+      : "The V2 portfolio has 4 demo projects; two need cost intervention. Lotus Compound is the highest-impact project at EGP 8.4M variance. Source: Projects / Cost Spine.";
+  }
+
+  if (/estimate|boq|tender|مناقصة|تقدير|مقايسة|بنود/.test(normalized)) {
+    return locale === "ar"
+      ? "Smart Estimate في V2 يحول عينة المناقصة إلى BOQ قابل للمراجعة، يطابق الأسعار، يعرض الثقة، ثم ينشئ مسودة تقدير. آخر عينة تجريبية وصلت إلى ثقة 91% وتكلفة 18.6م جنيه. المصدر: Smart Estimate / BOQ Review."
+      : "V2 Smart Estimate turns the sample tender into an editable BOQ, matches rates, shows confidence, then creates a draft estimate. The latest demo sample reached 91% confidence and EGP 18.6M. Source: Smart Estimate / BOQ Review.";
   }
 
   if (/risk|مخاطر|خطر/.test(normalized)) {
@@ -117,22 +147,22 @@ function buildOpenDemoAssistantAnswer(message: string, locale: AssistantLocale):
       : "Top 3 risks: concrete overrun, delayed rebar supply, and a change signal from the site report. Source: Risk feed / Change Radar.";
   }
 
-  if (/rfq|quote|quotation|عرض سعر|طلبات الأسعار/.test(normalized)) {
-    return locale === "ar"
-      ? "طلبات الأسعار في عرض V2 تقارن السعر ومدة التوريد ودرجة المورد. أفضل ترسية تجريبية حالياً: Ezz Steel بدرجة 91/100 مع أثر التزام مباشر على عمود التكلفة."
-      : "The V2 RFQ view compares price, lead time, and supplier score. Current demo award: Ezz Steel at 91/100, converting directly into a Cost Spine commitment.";
-  }
-
   if (/change order|variation|claim|تغيير|إخطار|مطالبة/.test(normalized)) {
     return locale === "ar"
-      ? "رادار أوامر التغيير رصد طلب تغيير من تقرير الموقع، قدر الأثر بـ420 ألف جنيه و3 أيام، ثم جهز مسودة إخطار عربي قابلة للتحويل إلى Future Flow."
-      : "Change Order Radar detected a variation from the field report, estimated EGP 420K and 3 days, then drafted a notice ready for Future Flow approval.";
+      ? "رادار أوامر التغيير رصد طلب تغيير من تقرير الموقع، قدر الأثر بـ420 ألف جنيه و3 أيام، ثم جهز مسودة إخطار عربي قابلة للتحويل إلى Future Flow. المصدر: Change Order Radar / Field Reports."
+      : "Change Order Radar detected a variation from the field report, estimated EGP 420K and 3 days, then drafted a notice ready for Future Flow approval. Source: Change Order Radar / Field Reports.";
   }
 
   if (/approval|sla|موافقة|اعتماد/.test(normalized)) {
     return locale === "ar"
       ? "يوجد طلبان في Future Flow، أقربهما لكسر SLA خلال ساعتين: اعتماد مستخلص خرسانة بقيمة 3.2م جنيه. المصدر: Approval Inbox."
       : "Future Flow has two pending requests; the nearest SLA breach is in 2 hours for a EGP 3.2M concrete payment cert. Source: Approval Inbox.";
+  }
+
+  if (/variance|over budget|cost spine|فرق|انحراف|تجاوز|تكلفة/.test(normalized)) {
+    return locale === "ar"
+      ? "أكبر فرق تكلفة في V2 هو كمبوند لوتس بفارق 8.4م جنيه، مع CPI 0.91 وEOC متوقع 52.8م جنيه. المصدر: Cost Spine / Variance Dashboard."
+      : "The largest V2 variance is Lotus Compound at EGP 8.4M, with CPI 0.91 and EOC forecast of EGP 52.8M. Source: Cost Spine / Variance Dashboard.";
   }
 
   return locale === "ar"

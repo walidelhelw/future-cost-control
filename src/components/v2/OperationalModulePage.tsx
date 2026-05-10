@@ -232,7 +232,23 @@ export function OperationalModulePage({ locale, pageKey }: OperationalModulePage
 
         {pageKey === "ask" ? (
           <List title={t("assistantWorkbench")}>
-            {["كم تكلفة المشاريع المتأخرة؟", "أفضل مورد للحديد هذا الشهر؟", "ما الموافقات التي ستكسر SLA؟"].map((query) => (
+            {(locale === "ar"
+              ? [
+                "كم تكلفة المشاريع المتأخرة؟",
+                "ما سعر الحديد الحالي؟",
+                "ما فجوة التدفق النقدي؟",
+                "ما الموافقات التي ستكسر SLA؟",
+                "ما أفضل RFQ؟",
+                "اعرض أوامر التغيير",
+              ]
+              : [
+                "Which projects are over budget?",
+                "Current rebar rate?",
+                "What is the cashflow gap?",
+                "Which approvals will breach SLA?",
+                "Best RFQ award?",
+                "Show open change orders",
+              ]).map((query) => (
               <Row key={query} meta={t("useFloatingFuture")} title={query}>
                 <Badge className="bg-cyan-100 text-cyan-800 hover:bg-cyan-100">Future</Badge>
               </Row>

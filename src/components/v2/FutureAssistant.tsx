@@ -15,8 +15,22 @@ type Message = {
 };
 
 const suggestions = {
-  ar: ["كم تكلفة المشاريع المتأخرة؟", "أفضل مورد للحديد هذا الشهر؟", "ما أكبر 3 مخاطر؟"],
-  en: ["Which projects are over budget?", "Best supplier for rebar?", "Top 3 active risks?"],
+  ar: [
+    "كم تكلفة المشاريع المتأخرة؟",
+    "ما سعر الحديد الحالي؟",
+    "ما فجوة التدفق النقدي؟",
+    "ما الموافقات التي ستكسر SLA؟",
+    "ما أفضل RFQ؟",
+    "اعرض أوامر التغيير",
+  ],
+  en: [
+    "Which projects are over budget?",
+    "Current rebar rate?",
+    "What is the cashflow gap?",
+    "Which approvals will breach SLA?",
+    "Best RFQ award?",
+    "Show open change orders",
+  ],
 };
 
 type FutureAssistantProps = {
