@@ -117,6 +117,39 @@ export const assistantToolDeclarations: FunctionDeclaration[] = [
       },
     },
   },
+  {
+    name: "getApprovals",
+    description: "List authorized V2 approvals and SLA/workflow items.",
+    parameters: {
+      type: Type.OBJECT,
+      properties: {
+        projectId: projectIdProperty,
+        limit: limitProperty,
+      },
+    },
+  },
+  {
+    name: "getRfqs",
+    description: "List authorized RFQs with bounded quote summaries.",
+    parameters: {
+      type: Type.OBJECT,
+      properties: {
+        projectId: projectIdProperty,
+        limit: limitProperty,
+      },
+    },
+  },
+  {
+    name: "getChangeOrders",
+    description: "List authorized change orders and drafted notices.",
+    parameters: {
+      type: Type.OBJECT,
+      properties: {
+        projectId: projectIdProperty,
+        limit: limitProperty,
+      },
+    },
+  },
 ];
 
 export const assistantToolNames = assistantToolDeclarations

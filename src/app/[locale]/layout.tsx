@@ -2,8 +2,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Cairo } from "next/font/google";
-import { Sidebar } from "@/components/layout/Sidebar";
-import { Header } from "@/components/layout/Header";
+import { LocaleFrame } from "@/components/layout/LocaleFrame";
 import "../globals.css";
 
 const cairo = Cairo({
@@ -36,13 +35,7 @@ export default async function LocaleLayout({
     <html lang={locale} dir={dir}>
       <body className={`${cairo.variable} font-sans antialiased`}>
         <NextIntlClientProvider messages={messages}>
-          <div className="relative min-h-screen">
-            <Sidebar />
-            <main className="lg:rtl:mr-64 lg:ltr:ml-64">
-              <Header />
-              <div className="p-6">{children}</div>
-            </main>
-          </div>
+          <LocaleFrame>{children}</LocaleFrame>
         </NextIntlClientProvider>
       </body>
     </html>

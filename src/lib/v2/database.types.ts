@@ -196,6 +196,46 @@ export type ChatHistoryRow = {
   created_at: string | null;
 };
 
+export type ApprovalRow = {
+  id: string;
+  org_id: string;
+  project_id: string | null;
+  workflow_id: string | null;
+  subject: string;
+  status: string | null;
+  created_at: string | null;
+};
+
+export type ChangeOrderRow = {
+  id: string;
+  org_id: string;
+  project_id: string | null;
+  title: string;
+  amount: number | null;
+  status: string | null;
+  created_at: string | null;
+};
+
+export type RfqRow = {
+  id: string;
+  org_id: string;
+  project_id: string | null;
+  title: string;
+  status: string | null;
+  created_at: string | null;
+};
+
+export type RfqQuoteRow = {
+  id: string;
+  org_id: string;
+  rfq_id: string;
+  supplier_id: string | null;
+  amount: number | null;
+  lead_time_days: number | null;
+  payload: Json | null;
+  created_at: string | null;
+};
+
 export type Database = {
   public: {
     Tables: {
@@ -227,6 +267,10 @@ export type Database = {
       embeddings: Table<EmbeddingRow>;
       ai_call_log: Table<AiCallLogRow>;
       chat_history: Table<ChatHistoryRow>;
+      approvals: Table<ApprovalRow>;
+      change_orders: Table<ChangeOrderRow>;
+      rfqs: Table<RfqRow>;
+      rfq_quotes: Table<RfqQuoteRow>;
       audit_log: Table<{
         id: string;
         entity_type: string;

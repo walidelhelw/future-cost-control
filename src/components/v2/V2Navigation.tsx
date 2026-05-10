@@ -5,16 +5,23 @@ import { usePathname } from "next/navigation";
 import type { ComponentType } from "react";
 import {
   Activity,
+  AlertTriangle,
   Bot,
   Calculator,
   ClipboardCheck,
   Command,
+  Database,
   FileClock,
+  FileSpreadsheet,
+  FolderKanban,
   Gauge,
   GitBranch,
   HardHat,
   RadioTower,
   Settings2,
+  TrendingUp,
+  Users,
+  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navItems, type V2NavKey } from "./data";
@@ -23,13 +30,21 @@ import { pickText, type V2Locale } from "./localize";
 const iconMap: Record<V2NavKey, ComponentType<{ className?: string }>> = {
   admin: Settings2,
   ask: Bot,
+  boq: Calculator,
+  cashflow: TrendingUp,
   change: GitBranch,
   cost: Gauge,
   estimate: Calculator,
+  estimates: FileSpreadsheet,
   field: HardHat,
   flow: ClipboardCheck,
   home: Command,
+  productivity: Zap,
+  projects: FolderKanban,
+  rates: Database,
   rfq: FileClock,
+  risks: AlertTriangle,
+  suppliers: Users,
 };
 
 type V2NavigationProps = {
@@ -110,8 +125,8 @@ export function V2Navigation({ locale }: V2NavigationProps) {
         </div>
       </aside>
 
-      <nav className="fixed inset-x-3 bottom-3 z-40 grid grid-cols-5 gap-1 rounded-md border border-slate-200 bg-white/95 p-1 shadow-[0_18px_46px_rgba(15,23,42,0.16)] backdrop-blur-2xl lg:hidden">
-        {navItems.slice(0, 5).map((item) => {
+      <nav className="fixed inset-x-3 bottom-3 z-40 flex gap-1 overflow-x-auto rounded-md border border-slate-200 bg-white/95 p-1 shadow-[0_18px_46px_rgba(15,23,42,0.16)] backdrop-blur-2xl lg:hidden">
+        {navItems.map((item) => {
           const href = `/${locale}${item.href}`;
           const isActive =
             item.key === "home" ? pathname === href : pathname.startsWith(href);
@@ -123,7 +138,7 @@ export function V2Navigation({ locale }: V2NavigationProps) {
               href={href}
               prefetch={false}
               className={cn(
-                "flex min-h-12 flex-col items-center justify-center gap-1 rounded text-[10px]",
+                "flex min-h-12 min-w-16 flex-col items-center justify-center gap-1 rounded px-2 text-[10px]",
                 isActive ? "bg-cyan-50 text-cyan-800" : "text-slate-500"
               )}
             >

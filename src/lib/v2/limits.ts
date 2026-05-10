@@ -9,7 +9,10 @@ export type AssistantToolName =
   | "getRisks"
   | "getCashflow"
   | "searchSemantic"
-  | "getVariances";
+  | "getVariances"
+  | "getApprovals"
+  | "getRfqs"
+  | "getChangeOrders";
 
 const ASSISTANT_TOOL_NAMES: readonly AssistantToolName[] = [
   "getProjects",
@@ -20,6 +23,9 @@ const ASSISTANT_TOOL_NAMES: readonly AssistantToolName[] = [
   "getCashflow",
   "searchSemantic",
   "getVariances",
+  "getApprovals",
+  "getRfqs",
+  "getChangeOrders",
 ];
 
 export function clampAssistantLimit(

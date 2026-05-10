@@ -117,6 +117,18 @@ function buildOpenDemoAssistantAnswer(message: string, locale: AssistantLocale):
       : "Top 3 risks: concrete overrun, delayed rebar supply, and a change signal from the site report. Source: Risk feed / Change Radar.";
   }
 
+  if (/rfq|quote|quotation|عرض سعر|طلبات الأسعار/.test(normalized)) {
+    return locale === "ar"
+      ? "طلبات الأسعار في عرض V2 تقارن السعر ومدة التوريد ودرجة المورد. أفضل ترسية تجريبية حالياً: Ezz Steel بدرجة 91/100 مع أثر التزام مباشر على عمود التكلفة."
+      : "The V2 RFQ view compares price, lead time, and supplier score. Current demo award: Ezz Steel at 91/100, converting directly into a Cost Spine commitment.";
+  }
+
+  if (/change order|variation|claim|تغيير|إخطار|مطالبة/.test(normalized)) {
+    return locale === "ar"
+      ? "رادار أوامر التغيير رصد طلب تغيير من تقرير الموقع، قدر الأثر بـ420 ألف جنيه و3 أيام، ثم جهز مسودة إخطار عربي قابلة للتحويل إلى Future Flow."
+      : "Change Order Radar detected a variation from the field report, estimated EGP 420K and 3 days, then drafted a notice ready for Future Flow approval.";
+  }
+
   if (/approval|sla|موافقة|اعتماد/.test(normalized)) {
     return locale === "ar"
       ? "يوجد طلبان في Future Flow، أقربهما لكسر SLA خلال ساعتين: اعتماد مستخلص خرسانة بقيمة 3.2م جنيه. المصدر: Approval Inbox."

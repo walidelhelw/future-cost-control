@@ -2,8 +2,16 @@ import type { LocalizedText } from "./localize";
 
 export type V2NavKey =
   | "home"
+  | "projects"
+  | "rates"
+  | "productivity"
   | "estimate"
+  | "estimates"
+  | "boq"
   | "cost"
+  | "suppliers"
+  | "risks"
+  | "cashflow"
   | "field"
   | "flow"
   | "change"
@@ -20,8 +28,16 @@ export type V2NavItem = {
 
 export const navItems: V2NavItem[] = [
   { key: "home", href: "/v2", label: { ar: "مركز القيادة", en: "Command" }, metric: { ar: "12 مشروع حي", en: "12 live projects" } },
+  { key: "projects", href: "/v2/projects", label: { ar: "المشاريع", en: "Projects" }, metric: { ar: "إدارة كاملة", en: "Full control" } },
+  { key: "rates", href: "/v2/rates", label: { ar: "قاعدة الأسعار", en: "Rates" }, metric: { ar: "87 سعر", en: "87 rates" } },
+  { key: "productivity", href: "/v2/productivity", label: { ar: "الإنتاجية", en: "Productivity" }, metric: { ar: "131 قالب", en: "131 templates" } },
   { key: "estimate", href: "/v2/estimate", label: { ar: "التقدير الذكي", en: "Estimate" }, metric: { ar: "91% ثقة", en: "91% confidence" } },
+  { key: "estimates", href: "/v2/estimates", label: { ar: "التقديرات", en: "Estimates" }, metric: { ar: "تحرير BOQ", en: "BOQ editing" } },
+  { key: "boq", href: "/v2/boq", label: { ar: "حاسبة البنود", en: "BOQ Calc" }, metric: { ar: "تكلفة مباشرة", en: "Direct cost" } },
   { key: "cost", href: "/v2/cost", label: { ar: "عمود التكلفة", en: "Cost Spine" }, metric: { ar: "18.4م فرق", en: "18.4M variance" } },
+  { key: "suppliers", href: "/v2/suppliers", label: { ar: "الموردون", en: "Suppliers" }, metric: { ar: "7 معايير", en: "7 criteria" } },
+  { key: "risks", href: "/v2/risks", label: { ar: "المخاطر", en: "Risks" }, metric: { ar: "EMV حي", en: "Live EMV" } },
+  { key: "cashflow", href: "/v2/cashflow", label: { ar: "التدفق النقدي", en: "Cashflow" }, metric: { ar: "NPV وفجوة", en: "NPV/gap" } },
   { key: "field", href: "/v2/field", label: { ar: "الموقع", en: "Field" }, metric: { ar: "27 تقرير", en: "27 reports" } },
   { key: "flow", href: "/v2/flow", label: { ar: "الموافقات", en: "Flow" }, metric: { ar: "8 تنتظر", en: "8 waiting" } },
   { key: "change", href: "/v2/change", label: { ar: "أوامر التغيير", en: "Change" }, metric: { ar: "3 إنذارات", en: "3 alerts" } },
@@ -31,8 +47,16 @@ export const navItems: V2NavItem[] = [
 ];
 
 export const moduleMetrics = [
+  { key: "projects", label: { ar: "المشاريع", en: "Projects" }, value: "12", delta: { ar: "مشاريع نشطة ومفلترة", en: "active, searchable projects" } },
+  { key: "rates", label: { ar: "قاعدة الأسعار", en: "Rate Database" }, value: "87", delta: { ar: "مواد وعمالة ومعدات", en: "materials, labor, equipment" } },
+  { key: "productivity", label: { ar: "الإنتاجية", en: "Productivity" }, value: "131", delta: { ar: "قوالب تشغيل", en: "production templates" } },
   { key: "estimate", label: { ar: "التقدير الذكي", en: "Smart Estimate" }, value: "EGP 84.2M", delta: { ar: "+6 بنود خلال 24 ساعة", en: "+6 BOQ lines in 24h" } },
+  { key: "estimates", label: { ar: "التقديرات", en: "Estimates" }, value: "9", delta: { ar: "مسودات ومراجعات", en: "drafts and reviews" } },
+  { key: "boq", label: { ar: "حاسبة البنود", en: "BOQ Calculator" }, value: "4.8M", delta: { ar: "تكلفة مباشرة فورية", en: "instant direct cost" } },
   { key: "cost", label: { ar: "عمود التكلفة", en: "Cost Spine" }, value: "1.08 CPI", delta: { ar: "مشروعان فوق الميزانية", en: "2 projects over budget" } },
+  { key: "suppliers", label: { ar: "الموردون", en: "Suppliers" }, value: "91/100", delta: { ar: "أفضل درجة حديد", en: "best rebar score" } },
+  { key: "risks", label: { ar: "المخاطر", en: "Risks" }, value: "3 High", delta: { ar: "مخاطر عالية مفتوحة", en: "high risks open" } },
+  { key: "cashflow", label: { ar: "التدفق", en: "Cashflow" }, value: "7.4M", delta: { ar: "فجوة تمويل متوقعة", en: "forecast funding gap" } },
   { key: "field", label: { ar: "وضع الموقع", en: "Field Mode" }, value: "27", delta: { ar: "تقارير موقع اليوم", en: "site reports today" } },
   { key: "flow", label: { ar: "Future Flow", en: "Future Flow" }, value: "08", delta: { ar: "موافقات قبل SLA", en: "approvals before SLA" } },
   { key: "change", label: { ar: "رادار التغيير", en: "Change Radar" }, value: "3", delta: { ar: "إشعارات تغيير محتملة", en: "potential notices" } },

@@ -36,6 +36,16 @@ const checks = [
     }
   },
   async () => {
+    for (const path of ["/ar/v2/rates", "/ar/v2/productivity", "/ar/v2/projects", "/ar/v2/estimates", "/ar/v2/suppliers", "/ar/v2/boq", "/ar/v2/risks", "/ar/v2/cashflow"]) {
+      const response = await assertOk(path);
+      const html = await response.text();
+      if (!html.includes("مسار V2 كامل")) {
+        throw new Error(`${path} did not render the native V2 parity shell`);
+      }
+      console.log(`PASS ${path}`);
+    }
+  },
+  async () => {
     const response = await assertOk("/api/v2/assistant", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

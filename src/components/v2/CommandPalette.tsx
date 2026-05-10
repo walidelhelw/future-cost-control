@@ -4,15 +4,22 @@ import { useRouter } from "next/navigation";
 import { Command } from "cmdk";
 import type { ComponentType } from "react";
 import {
+  AlertTriangle,
   Bot,
   Calculator,
+  Database,
   FileClock,
+  FileSpreadsheet,
+  FolderKanban,
   Gauge,
   GitBranch,
   HardHat,
   Search,
   Settings2,
   Sparkles,
+  TrendingUp,
+  Users,
+  Zap,
 } from "lucide-react";
 import { navItems, type V2NavKey } from "./data";
 import { pickText, type V2Locale } from "./localize";
@@ -20,11 +27,21 @@ import { pickText, type V2Locale } from "./localize";
 const iconMap: Partial<Record<V2NavKey, ComponentType<{ className?: string }>>> = {
   admin: Settings2,
   ask: Bot,
+  boq: Calculator,
+  cashflow: TrendingUp,
   change: GitBranch,
   cost: Gauge,
   estimate: Calculator,
+  estimates: FileSpreadsheet,
   field: HardHat,
+  flow: Sparkles,
+  home: Sparkles,
+  productivity: Zap,
+  projects: FolderKanban,
+  rates: Database,
   rfq: FileClock,
+  risks: AlertTriangle,
+  suppliers: Users,
 };
 
 type CommandPaletteProps = {

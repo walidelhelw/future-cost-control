@@ -25,7 +25,7 @@ export function CommandCenter({ locale }: CommandCenterProps) {
       <V2Ticker locale={locale} />
 
       <section className="grid gap-3 xl:grid-cols-[280px_minmax(0,1fr)_320px]">
-        <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-1">
+        <div className="grid max-h-[680px] gap-3 overflow-y-auto pe-1 md:grid-cols-2 xl:grid-cols-1">
           {moduleMetrics.map((metric, index) => (
             <Link
               className="group rounded-md border border-slate-200 bg-white/90 p-4 shadow-sm transition hover:border-cyan-300 hover:bg-cyan-50/70"

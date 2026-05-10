@@ -15,6 +15,9 @@ export type V2Permission =
   | "risks:read"
   | "cashflow:read"
   | "variances:read"
+  | "approvals:read"
+  | "rfqs:read"
+  | "change_orders:read"
   | "semantic:read";
 
 export type V2SupabaseClient = ReturnType<typeof createV2ServerClient>;
@@ -50,6 +53,9 @@ const READ_PERMISSIONS: readonly V2Permission[] = [
   "risks:read",
   "cashflow:read",
   "variances:read",
+  "approvals:read",
+  "rfqs:read",
+  "change_orders:read",
   "semantic:read",
 ];
 

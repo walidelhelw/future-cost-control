@@ -4,6 +4,7 @@ import type { EstimateStatus, ProjectStatus, RateType } from "../database.types"
 import { isAllowedAssistantTool, normalizeAssistantQuery } from "../limits";
 import { listCashflow } from "../dal/cashflow";
 import { listEstimates } from "../dal/estimates";
+import { listApprovals, listChangeOrders, listRfqs } from "../dal/operations";
 import { listProjects } from "../dal/projects";
 import { searchRates } from "../dal/rates";
 import { listRisks } from "../dal/risks";
@@ -73,6 +74,18 @@ export function planFallbackToolCalls(message: string): AssistantToolCall[] {
     return [{ name: "getSuppliers", args: { query: message, limit: 5 } }];
   }
 
+  if (/rfq|quote|quotation|عرض سعر|طلبات الأسعار/.test(text)) {
+    return [{ name: "getRfqs", args: { limit: 5 } }];
+  }
+
+  if (/approval|sla|اعتماد|موافقة|تصعيد/.test(text)) {
+    return [{ name: "getApprovals", args: { limit: 5 } }];
+  }
+
+  if (/change order|variation|claim|تغيير|إخطار|مطالبة/.test(text)) {
+    return [{ name: "getChangeOrders", args: { limit: 5 } }];
+  }
+
   if (/rate|price|steel|rebar|سعر|حديد|بند/.test(text)) {
     return [{ name: "getRates", args: { query: message, limit: 5 } }];
   }
@@ -122,6 +135,12 @@ async function executeAssistantToolCall(
         return { ok: true, name: call.name, result: await searchSemanticIndex(context, parseSemantic(call.args)) };
       case "getVariances":
         return { ok: true, name: call.name, result: await listVariances(context, parseProjectScoped(call.args)) };
+      case "getApprovals":
+        return { ok: true, name: call.name, result: await listApprovals(context, parseProjectScoped(call.args)) };
+      case "getRfqs":
+        return { ok: true, name: call.name, result: await listRfqs(context, parseProjectScoped(call.args)) };
+      case "getChangeOrders":
+        return { ok: true, name: call.name, result: await listChangeOrders(context, parseProjectScoped(call.args)) };
     }
   } catch (error) {
     return {
