@@ -31,6 +31,7 @@ export function CommandCenter({ locale }: CommandCenterProps) {
               className="group rounded-md border border-slate-200 bg-white/90 p-4 shadow-sm transition hover:border-cyan-300 hover:bg-cyan-50/70"
               href={`/${locale}/v2/${metric.key === "estimate" ? "estimate" : metric.key}`}
               key={metric.key}
+              prefetch={false}
             >
               <div className="flex items-start justify-between gap-3">
                 <div>

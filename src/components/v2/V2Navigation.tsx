@@ -75,6 +75,7 @@ export function V2Navigation({ locale }: V2NavigationProps) {
               <Link
                 key={item.key}
                 href={href}
+                prefetch={false}
                 className={cn(
                   "group flex items-center gap-3 rounded-md border px-3 py-3 text-sm transition",
                   isActive
@@ -120,6 +121,7 @@ export function V2Navigation({ locale }: V2NavigationProps) {
             <Link
               key={item.key}
               href={href}
+              prefetch={false}
               className={cn(
                 "flex min-h-12 flex-col items-center justify-center gap-1 rounded text-[10px]",
                 isActive ? "bg-cyan-50 text-cyan-800" : "text-slate-500"
